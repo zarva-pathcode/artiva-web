@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Artiva - Exhibitions &amp; Virtual Tours</title>
+<!-- Google Fonts: Manrope (Body) and Cinzel (Headings) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#cd543c",
+                        "background-light": "#EFE1C1", 
+                        "background-dark": "#1d2a27",
+                        "sage": "#8DA399",
+                        "sage-dark": "#3E4A45",
+                        "text-main": "#191110",
+                        "text-muted": "#5C5C5C",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "Noto Sans", "sans-serif"],
+                        "heading": ["Cinzel", "serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar to match theme */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #EFE1C1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #8DA399;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #cd543c;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main font-display antialiased selection:bg-primary selection:text-white">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Navigation -->
+<header class="sticky top-0 z-50 w-full border-b border-[#D6CBB3] bg-background-light/95 backdrop-blur-md px-6 py-4 dark:bg-background-dark/95 dark:border-[#2d3b38]">
+<div class="mx-auto flex max-w-[1440px] items-center justify-between">
+<div class="flex items-center gap-12">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center rounded-full bg-primary p-2 text-white">
+<span class="material-symbols-outlined text-[20px]">all_inclusive</span>
+</div>
+<h2 class="font-heading text-2xl font-bold tracking-tight text-text-main dark:text-white">Artiva</h2>
+</div>
+<nav class="hidden items-center gap-8 lg:flex">
+<a class="text-sm font-semibold hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors" href="#">Artists</a>
+<a class="text-sm font-bold text-primary dark:text-primary" href="#">Exhibitions</a>
+<a class="text-sm font-semibold hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors" href="#">Marketplace</a>
+<a class="text-sm font-semibold hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors" href="#">Journal</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<button class="hidden text-text-main hover:text-primary lg:block dark:text-white">
+<span class="material-symbols-outlined">search</span>
+</button>
+<div class="flex gap-3">
+<button class="hidden rounded-full border border-text-main/20 px-6 py-2.5 text-sm font-bold text-text-main hover:bg-text-main hover:text-white transition-all sm:block dark:border-white/20 dark:text-white dark:hover:bg-white dark:hover:text-background-dark">
+                            Sign In
+                        </button>
+<button class="rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-primary/30 hover:bg-[#b04530] transition-all">
+                            Join List
+                        </button>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-1">
+<!-- Hero: Virtual Tour -->
+<section class="relative px-4 py-8 sm:px-6 lg:px-8">
+<div class="mx-auto max-w-[1440px]">
+<div class="relative overflow-hidden rounded-[2rem] bg-black shadow-2xl">
+<!-- Background Image -->
+<div class="absolute inset-0 bg-cover bg-center opacity-80 transition-transform duration-1000 hover:scale-105" data-alt="Abstract 3D digital art tunnel glowing with neon lights in a dark void" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAEx_SXueRh7TuzWko1OeRDYe6HDr002kFGBX9duriXNmBRGQ6jIjbwXEBel_sMNA4DUF48LxOqI-vX-akT5D_WnZaCETr9aUlEEF_SaMHGomqgEvhE98-JmwmXDX-IgUxQJRkfZK81jqmbG2y8uwNDmfwLdGYwoK65yJ_jFQ9k9eajWiuWYSagqjDCirxmndmrgeUNN15bv_UIazKrpu8NW1uUQdUYWsE7sxGGl3suZTbRr35yM3W8HnGk1n9Scak82SGC9dzuBXM");'>
+</div>
+<!-- Gradient Overlay -->
+<div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
+<div class="relative z-10 flex min-h-[600px] flex-col justify-center px-8 py-20 sm:px-16 lg:px-24">
+<span class="mb-4 inline-flex w-fit items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white backdrop-blur-sm">
+<span class="material-symbols-outlined text-[16px] animate-pulse text-green-400">circle</span>
+                                Live Virtual Exhibition
+                            </span>
+<h1 class="font-heading mb-6 max-w-3xl text-5xl font-black leading-tight text-white sm:text-6xl lg:text-7xl">
+                                Luminescence: <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/60">The Digital Age</span>
+</h1>
+<p class="mb-10 max-w-xl text-lg font-medium leading-relaxed text-gray-200">
+                                Step into the void. Experience our flagship collection in a fully immersive 360° environment directly from your browser. No headset required.
+                            </p>
+<div class="flex flex-wrap gap-4">
+<button class="group flex items-center gap-3 rounded-full bg-primary px-8 py-4 text-base font-bold text-white shadow-xl shadow-primary/20 transition-all hover:translate-y-[-2px] hover:bg-[#b04530]">
+<span>Enter Virtual Gallery</span>
+<span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+</button>
+<button class="flex items-center gap-2 rounded-full bg-white/10 px-8 py-4 text-base font-bold text-white backdrop-blur-md transition-all hover:bg-white/20">
+<span class="material-symbols-outlined">play_circle</span>
+<span>Watch Trailer</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Tabs & Filters -->
+<section class="sticky top-[80px] z-40 border-b border-text-main/10 bg-background-light/95 backdrop-blur-sm px-6 dark:bg-background-dark/95 dark:border-white/10">
+<div class="mx-auto flex max-w-[1440px] items-center justify-between py-4">
+<div class="no-scrollbar flex gap-8 overflow-x-auto">
+<a class="flex flex-col items-center gap-2 text-text-main" href="#">
+<span class="text-base font-bold">All Events</span>
+<span class="h-0.5 w-full rounded-full bg-primary"></span>
+</a>
+<a class="flex flex-col items-center gap-2 text-text-muted hover:text-text-main transition-colors" href="#">
+<span class="text-base font-medium">Current</span>
+<span class="h-0.5 w-full scale-x-0 rounded-full bg-primary transition-transform group-hover:scale-x-100"></span>
+</a>
+<a class="flex flex-col items-center gap-2 text-text-muted hover:text-text-main transition-colors" href="#">
+<span class="text-base font-medium">Upcoming</span>
+</a>
+<a class="flex flex-col items-center gap-2 text-text-muted hover:text-text-main transition-colors" href="#">
+<span class="text-base font-medium">Virtual Only</span>
+</a>
+</div>
+<div class="hidden sm:flex items-center gap-2 text-text-muted text-sm font-medium">
+<span>Sort by:</span>
+<button class="flex items-center gap-1 text-text-main hover:text-primary">
+                            Date <span class="material-symbols-outlined text-[18px]">keyboard_arrow_down</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Asymmetric Exhibition Grid -->
+<section class="px-4 py-16 sm:px-6 lg:px-8">
+<div class="mx-auto grid max-w-[1440px] grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-12">
+<!-- Featured Large Card (Left) -->
+<div class="group relative flex flex-col overflow-hidden rounded-[1.5rem] bg-white shadow-sm transition-all hover:shadow-lg lg:col-span-7 dark:bg-[#253330]">
+<div class="relative h-[400px] w-full overflow-hidden sm:h-[500px]">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Modern art gallery interior with white walls and abstract colorful paintings" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDClC7-SgXYtVX6374UYN6H6_ZMEB5dKtzXHtzV-wcWkUQFCrVAJTMJx5COdyXYdGnFZO4e_DUSueypmm5Hu7sDfPtvIWK4DaTRvADk1KjfA7j3QrnfDkqRTE2bIS6LFIevmFL_6kwvwUEZ_Y3i7NmL0TNFnC-Nxscn01_0xTMpIwS9jBcvPrn2lhhFj1Ng7BGBCp9fRYGB5c7DIbD_tgbOWAj5KN_oIoCFiVoV3geiSCCAD_bA1Re6EhydUVetCVKz3xLZnhfKtcM");'>
+</div>
+<div class="absolute top-6 left-6 rounded-lg bg-white/90 px-3 py-1 text-sm font-bold text-text-main backdrop-blur-sm shadow-sm dark:bg-black/80 dark:text-white">
+                                Physical • London
+                            </div>
+</div>
+<div class="flex flex-1 flex-col justify-between p-8">
+<div class="mb-6">
+<div class="mb-2 text-sm font-bold uppercase tracking-wide text-primary">Oct 12 - Nov 15</div>
+<h3 class="font-heading mb-3 text-3xl font-bold leading-tight text-text-main dark:text-white sm:text-4xl">Modern Masters Retrospective</h3>
+<p class="line-clamp-3 text-lg text-text-muted dark:text-gray-400">
+                                    A comprehensive look at the defining works of the 21st century. Featuring over 50 artists from around the globe, this exhibition traces the lineage of abstract expressionism into the modern digital era.
+                                </p>
+</div>
+<div class="flex items-center justify-between border-t border-gray-100 pt-6 dark:border-white/10">
+<div class="flex -space-x-3">
+<img alt="Artist Avatar" class="h-10 w-10 rounded-full border-2 border-white object-cover dark:border-[#253330]" data-alt="Portrait of a female artist" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAV07TBmZm-TmZH8wkAv15Zy-iIf8izGipOAp7-fmomLC9jUGrXCxpbr9KuiNEWIcMfaokGlZ3QnVB8aAZBeK5LuTi5YVESUkL5N97geGRCmaYpxRl5yBBw3yTDnCPX7k3H9w87MvlPCfR1SbPAParsVkcz9NEbZ8LrsLnmEZwzEOU1RkN6czPOUsdtHOzk_vnLAhRcHKWmNm2PBAkoU3qA5JJDBRHTfwx_ig-msnC0metAkl5aLQxEQeOM-N8xJdI7dGHR2zmPUNw"/>
+<img alt="Artist Avatar" class="h-10 w-10 rounded-full border-2 border-white object-cover dark:border-[#253330]" data-alt="Portrait of a male artist" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdvPxgj7wQN-OKPRNs3zZBkRy59cVXqOo79OMH3wkm5W8HKaQ5kWBb3e2lc3PwYQ0nbz5QQgIYgJZErG6wvQ2JREOihO8BeXmj0ufqbh1R-JYHEgCOU6hqm0-6q8tBN3zzE19OJFiFFp7dBRby3vYuGLhaugZLsj1_wK_oTExI-KnoNvHkPQRZIs1emb3jA9cDoc3ekeN3VD34x9V4a3_1UU9lZyRxDKCuzNYxXFf8clfacA57G4zLVaDLydx5Od_fpMFI3mqmGro"/>
+<div class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-white bg-gray-100 text-xs font-bold text-text-main dark:border-[#253330] dark:bg-gray-700 dark:text-white">+8</div>
+</div>
+<button class="flex items-center gap-2 text-sm font-bold text-text-main transition-colors group-hover:text-primary dark:text-white">
+                                    View Details <span class="material-symbols-outlined">arrow_right_alt</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Stacked Right Column -->
+<div class="flex flex-col gap-8 lg:col-span-5">
+<!-- Card 2 -->
+<div class="group flex flex-1 flex-col overflow-hidden rounded-[1.5rem] bg-white shadow-sm transition-all hover:shadow-lg dark:bg-[#253330]">
+<div class="relative h-48 overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Minimalist sculpture in a bright room with dramatic shadows" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAm8TAF6a_Wlr7EUmnJ7AQRsJ6E8TVAy2wdKyY75TtlMX3Jg1nvLHr8fL4EMXpCsPtQ_iDo4_54Lx_7QdmnQm3cy_Zsi5o9moOv0VFMSUA3_TuZthj--HfGpCInaVgeprMdNobKm_fQikjUoFS102HAXjJNp-QT7wbZTg-xwO7oPQXuHBkdBg1g5hZyOzpsXUx9xS7_mo1gf08IA7T9rMyxhb5Qatru9jKEbi41sPAIPEnu_kWf9DxQ49E-513AtT3mtc1mvBXpMyo");'>
+</div>
+<div class="absolute top-4 left-4 rounded-lg bg-white/90 px-3 py-1 text-xs font-bold text-text-main backdrop-blur-sm dark:bg-black/80 dark:text-white">
+                                    NYC • Dec 01
+                                </div>
+</div>
+<div class="p-6">
+<h4 class="font-heading mb-2 text-2xl font-bold text-text-main dark:text-white">Sculpting Silence</h4>
+<p class="mb-4 text-sm text-text-muted dark:text-gray-400">An exploration of negative space through contemporary marble and steel work.</p>
+<button class="text-sm font-bold text-primary hover:underline">RSVP Open</button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group flex flex-1 flex-col overflow-hidden rounded-[1.5rem] bg-white shadow-sm transition-all hover:shadow-lg dark:bg-[#253330]">
+<div class="relative h-48 overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Abstract colorful glitch art pattern representing crypto art" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB_97TTWG_ijb5rAjw1hk1pNoMpGX0F3QHK3046BIn_X8Y28gef7HRoC6uZUvDWSRmI2gyyH30amJWPMG2FDdxJ5-tEmFA1gED0rLQgFxySMHz1f57o64dNbPX25GhqJM33o5SWSsYp0lJ8eP90GfOBh66eY8HVCUeTSU7akYXHdSNOxfUUe4IlyYK2mNCpqMJq-4N0BzllLUvtO2QQCqtWBQbJ6swiCTMOQbNU_bq4G1H6vVJAK9J4GBqtI6Jw-qufKQH5luhWle0");'>
+</div>
+<div class="absolute top-4 left-4 rounded-lg bg-[#cd543c] px-3 py-1 text-xs font-bold text-white shadow-md">
+                                    Live Now
+                                </div>
+</div>
+<div class="p-6">
+<h4 class="font-heading mb-2 text-2xl font-bold text-text-main dark:text-white">Crypto-Renaissance</h4>
+<p class="mb-4 text-sm text-text-muted dark:text-gray-400">Exclusive NFT drops from the world's leading digital creators.</p>
+<button class="text-sm font-bold text-primary hover:underline">View Collection</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Registration / RSVP Section (Sage Green) -->
+<section class="bg-sage px-4 py-20 dark:bg-sage-dark">
+<div class="mx-auto max-w-5xl rounded-3xl bg-[#f4f1ea] p-8 shadow-2xl dark:bg-[#2d3b38] md:p-16">
+<div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
+<div class="flex flex-col justify-center">
+<span class="mb-2 font-display text-sm font-bold uppercase tracking-widest text-primary">By Invitation</span>
+<h2 class="font-heading mb-6 text-4xl font-black leading-tight text-text-main dark:text-white">
+                                Join the Artiva <br/>Collector's Circle.
+                            </h2>
+<p class="mb-8 text-lg text-text-muted dark:text-gray-300">
+                                Get priority access to private viewings, artist meet-and-greets, and early bird registration for limited-capacity events.
+                            </p>
+<div class="flex items-center gap-4 text-sm font-medium text-text-muted dark:text-gray-400">
+<div class="flex -space-x-2">
+<div class="h-8 w-8 rounded-full bg-primary/20"></div>
+<div class="h-8 w-8 rounded-full bg-primary/40"></div>
+<div class="h-8 w-8 rounded-full bg-primary/60"></div>
+</div>
+<span>Join 2,000+ Curators &amp; Collectors</span>
+</div>
+</div>
+<div class="rounded-2xl bg-white p-8 shadow-lg dark:bg-[#1d2a27]">
+<form class="flex flex-col gap-5">
+<div class="flex flex-col gap-2">
+<label class="text-sm font-bold text-text-main dark:text-white">Full Name</label>
+<input class="w-full rounded-xl border-gray-200 bg-gray-50 px-4 py-3 text-text-main focus:border-primary focus:ring-primary dark:border-gray-700 dark:bg-[#253330] dark:text-white" placeholder="e.g. Jane Doe" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-bold text-text-main dark:text-white">Email Address</label>
+<input class="w-full rounded-xl border-gray-200 bg-gray-50 px-4 py-3 text-text-main focus:border-primary focus:ring-primary dark:border-gray-700 dark:bg-[#253330] dark:text-white" placeholder="jane@example.com" type="email"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-bold text-text-main dark:text-white">Preferred City</label>
+<div class="relative">
+<select class="w-full appearance-none rounded-xl border-gray-200 bg-gray-50 px-4 py-3 text-text-main focus:border-primary focus:ring-primary dark:border-gray-700 dark:bg-[#253330] dark:text-white">
+<option>London</option>
+<option>New York</option>
+<option>Paris</option>
+<option>Tokyo</option>
+<option>Virtual Only</option>
+</select>
+<div class="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+</div>
+<button class="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-4 text-base font-bold text-white shadow-lg shadow-primary/25 transition-all hover:bg-[#b04530]" type="button">
+                                    Request Invitation
+                                </button>
+<p class="text-center text-xs text-text-muted dark:text-gray-500">
+                                    Limited availability. Approval required for physical events.
+                                </p>
+</form>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-background-light py-12 dark:bg-background-dark">
+<div class="mx-auto flex max-w-[1440px] flex-col items-center gap-8 px-6 text-center md:flex-row md:justify-between md:text-left">
+<div>
+<h2 class="font-heading text-2xl font-bold text-text-main dark:text-white">Artiva</h2>
+<p class="mt-2 text-sm text-text-muted dark:text-gray-400">Bridging the gap between physical mastery <br/>and digital innovation.</p>
+</div>
+<div class="flex gap-8 text-sm font-medium text-text-main dark:text-gray-300">
+<a class="hover:text-primary" href="#">Instagram</a>
+<a class="hover:text-primary" href="#">Twitter</a>
+<a class="hover:text-primary" href="#">LinkedIn</a>
+</div>
+<div class="text-xs text-text-muted dark:text-gray-500">
+                    © 2023 Artiva Gallery. All rights reserved.
+                </div>
+</div>
+</footer>
+</div>
+</body></html>

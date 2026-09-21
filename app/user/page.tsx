@@ -6,10 +6,12 @@ import HeroSection from "@/components/landing/HeroSection";
 import ShopCTA from "@/components/landing/ShopCTA";
 import WhyArtiva from "@/components/landing/WhyArtiva";
 
-export default function Home() {
+export const metadata = { title: "Beranda — Artiva" };
+
+export default function UserHome() {
   return (
     <main>
-      <Navbar variant="guest" />
+      <Navbar variant="user" />
       <HeroSection />
       <WhyArtiva />
       <GalleryPreview />

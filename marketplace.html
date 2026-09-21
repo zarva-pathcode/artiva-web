@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Artiva Marketplace &amp; Secure Checkout</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#cd543c",
+                        "primary-hover": "#b24632",
+                        "background-light": "#efe2c2",
+                        "background-dark": "#1d2a27",
+                        "surface-light": "#fbf9f9",
+                        "surface-dark": "#2c3b38",
+                        "text-main": "#191110",
+                        "text-muted": "#8e6057",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #d1d5db;
+            border-radius: 20px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background-color: #4b5563;
+        }
+        
+        /* Hide default summary marker */
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-main dark:text-gray-100 transition-colors duration-300">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 w-full backdrop-blur-md bg-background-light/90 dark:bg-background-dark/90 border-b border-[#e4d6d3] dark:border-[#2c3b38]">
+<div class="px-4 md:px-10 py-4 flex items-center justify-between max-w-[1440px] mx-auto w-full">
+<!-- Logo -->
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center size-10 rounded-full bg-primary text-white">
+<span class="material-symbols-outlined">filter_vintage</span>
+</div>
+<h2 class="text-2xl font-bold tracking-tight text-text-main dark:text-white">Artiva</h2>
+</div>
+<!-- Desktop Nav -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-bold uppercase tracking-wider hover:text-primary transition-colors" href="#">Marketplace</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Artists</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Curated</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Journal</a>
+</nav>
+<!-- Actions -->
+<div class="flex items-center gap-3">
+<button class="flex size-10 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="relative flex size-10 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="absolute top-1 right-1 size-2.5 rounded-full bg-primary border-2 border-background-light dark:border-background-dark"></span>
+</button>
+<div class="hidden sm:block size-10 rounded-full bg-cover bg-center border border-white/20" data-alt="User profile avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA50bq5GBOS3XbsqN5IwCYHV0X5mVDphklwP77ffLZorp3UGG4s2OdebDvqHqBZTjjuDZK5yeUjY7XPYert8xdqp1nbJZ85HEWN-ED8zuPUMxpqo11eH9OUc-XI5pIFDhyEHoUBWQ2UsQBTxq-ix8VMOuYZZ9CTjrl3WT4xgm0XBvTb3FqrxhRB3WPuW8wNUrIsEBxS1p-oqvvYF_68U3SCU6mko5tUsKzWZfkGaaYTcHPP7H0qK7jUrTHP4jDJbvtXd2PFvWgKZIQ');">
+</div>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative w-full px-4 md:px-10 py-12 max-w-[1440px] mx-auto">
+<div class="flex flex-col lg:flex-row gap-8 items-center bg-surface-light dark:bg-surface-dark p-6 md:p-10 rounded-xl shadow-sm border border-[#e4d6d3] dark:border-white/5">
+<!-- Image -->
+<div class="w-full lg:w-1/2 aspect-video md:aspect-[21/9] lg:aspect-video rounded-lg overflow-hidden relative group">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Featured abstract artwork with warm tones" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAD8tz1YsoNuXYCqRrR5ekX4BP0P7uYVVlMF70U0U_0PChjcEhSqsFGbOYvtulaiipWq0cZ4imffl86UstxFJ76GzKYX33AsBPbNDVYMQezaqbv89_ahZHUnwaxHkAX92lRthIL5Hb3x18WwA6trnHsXzmSLqp0QVVEvza6Vql9LRU8S1pVRcN7cuTmw3fdJO22BqqHjlmTiQR4aWUV6Dnxa2RzmbsCW9oTPCdSVfk5HIzZqVNTdY-dRyxZynDZx2tjrCuqfSKrymo');">
+</div>
+<div class="absolute top-4 left-4 bg-white/90 dark:bg-black/80 backdrop-blur px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-text-main dark:text-white">
+                        Featured Artist
+                    </div>
+</div>
+<!-- Content -->
+<div class="w-full lg:w-1/2 flex flex-col gap-6 justify-center">
+<div>
+<h1 class="text-4xl md:text-5xl font-black leading-[1.1] tracking-tight mb-4 text-text-main dark:text-white">
+                            The Collection
+                        </h1>
+<p class="text-lg text-text-muted dark:text-gray-400 max-w-lg leading-relaxed">
+                            Discover curated fine art with verified provenance. Every piece includes a digital Certificate of Authenticity (COA) and is secured via Escrow.
+                        </p>
+</div>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary hover:bg-primary-hover text-white px-6 py-3 rounded-lg font-bold text-sm tracking-wide transition-colors flex items-center gap-2">
+                            Explore Featured
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+<div class="flex items-center gap-2 px-4 py-3 rounded-lg bg-background-light dark:bg-background-dark border border-[#e4d6d3] dark:border-white/10">
+<span class="material-symbols-outlined text-green-700 dark:text-green-400">verified_user</span>
+<span class="text-sm font-semibold text-text-main dark:text-white">Secure Escrow</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Content Area -->
+<main class="flex-1 w-full max-w-[1440px] mx-auto px-4 md:px-10 pb-20">
+<div class="flex flex-col lg:flex-row gap-10">
+<!-- Sidebar Filters -->
+<aside class="w-full lg:w-64 flex-shrink-0">
+<div class="sticky top-28 flex flex-col gap-6">
+<div class="flex items-center justify-between">
+<h3 class="font-bold text-lg">Filters</h3>
+<button class="text-xs font-bold text-primary hover:underline">Reset All</button>
+</div>
+<!-- Filter Accordions -->
+<div class="flex flex-col gap-3">
+<!-- Medium -->
+<details class="group rounded-xl bg-surface-light dark:bg-surface-dark border border-[#e4d6d3] dark:border-white/10" open="">
+<summary class="flex cursor-pointer items-center justify-between p-4">
+<span class="font-bold text-sm">Medium</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180 text-text-muted">keyboard_arrow_down</span>
+</summary>
+<div class="px-4 pb-4 pt-0 flex flex-col gap-2">
+<label class="flex items-center gap-3 cursor-pointer group/item">
+<input checked="" class="rounded border-gray-300 text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+<span class="text-sm group-hover/item:text-primary transition-colors">Oil Painting</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group/item">
+<input class="rounded border-gray-300 text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+<span class="text-sm group-hover/item:text-primary transition-colors">Acrylic</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group/item">
+<input class="rounded border-gray-300 text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+<span class="text-sm group-hover/item:text-primary transition-colors">Sculpture</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group/item">
+<input class="rounded border-gray-300 text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+<span class="text-sm group-hover/item:text-primary transition-colors">Digital Art</span>
+</label>
+</div>
+</details>
+<!-- Price Range -->
+<details class="group rounded-xl bg-surface-light dark:bg-surface-dark border border-[#e4d6d3] dark:border-white/10" open="">
+<summary class="flex cursor-pointer items-center justify-between p-4">
+<span class="font-bold text-sm">Price Range</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180 text-text-muted">keyboard_arrow_down</span>
+</summary>
+<div class="px-4 pb-6 pt-2">
+<div class="relative h-1 w-full bg-gray-200 dark:bg-gray-700 rounded-full mb-6">
+<div class="absolute left-[20%] right-[30%] top-0 bottom-0 bg-primary rounded-full"></div>
+<div class="absolute left-[20%] top-1/2 -translate-y-1/2 w-4 h-4 bg-primary rounded-full border-2 border-white shadow cursor-grab"></div>
+<div class="absolute right-[30%] top-1/2 -translate-y-1/2 w-4 h-4 bg-primary rounded-full border-2 border-white shadow cursor-grab"></div>
+</div>
+<div class="flex justify-between items-center text-xs font-bold text-text-muted">
+<span>$1,200</span>
+<span>$15,000</span>
+</div>
+</div>
+</details>
+<!-- Artists -->
+<details class="group rounded-xl bg-surface-light dark:bg-surface-dark border border-[#e4d6d3] dark:border-white/10">
+<summary class="flex cursor-pointer items-center justify-between p-4">
+<span class="font-bold text-sm">Artist</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180 text-text-muted">keyboard_arrow_down</span>
+</summary>
+<div class="px-4 pb-4 pt-0">
+<input class="w-full text-sm rounded-lg border-gray-300 dark:border-gray-700 bg-transparent mb-3 focus:border-primary focus:ring-primary" placeholder="Search artist..." type="text"/>
+<div class="flex flex-col gap-2 max-h-40 overflow-y-auto pr-2">
+<label class="flex items-center gap-3 cursor-pointer"><input class="rounded text-primary h-4 w-4" type="checkbox"/><span class="text-sm">Elena Voro</span></label>
+<label class="flex items-center gap-3 cursor-pointer"><input class="rounded text-primary h-4 w-4" type="checkbox"/><span class="text-sm">Marcus Chen</span></label>
+<label class="flex items-center gap-3 cursor-pointer"><input class="rounded text-primary h-4 w-4" type="checkbox"/><span class="text-sm">Sarah Jenkins</span></label>
+</div>
+</div>
+</details>
+</div>
+</div>
+</aside>
+<!-- Artwork Grid -->
+<div class="flex-1">
+<div class="flex items-center justify-between mb-6">
+<p class="text-sm text-text-muted font-medium"><span class="text-text-main dark:text-white font-bold">124</span> artworks found</p>
+<div class="flex items-center gap-2">
+<span class="text-sm text-text-muted hidden sm:inline">Sort by:</span>
+<select class="text-sm font-bold bg-transparent border-none py-0 pl-0 pr-8 focus:ring-0 cursor-pointer">
+<option>Newest Arrivals</option>
+<option>Price: Low to High</option>
+<option>Price: High to Low</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="group flex flex-col gap-4">
+<div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800 shadow-sm transition-shadow hover:shadow-xl">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-in-out group-hover:scale-110" data-alt="Abstract oil painting with deep blues and gold" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCuSG_TYJNiTBdENwNNpVnDz1gPPlnsNaxmpeoJ_t2qq5cWO_YNGOXdl9XJO3N6PHQJnsvtEV7GKIkTF3ZTAHlbuFMPsuSu9VfFRxtBSDSDmUVvSSbcESfu2NJbfD3Q6HwDTXqRFWH3EUmoPKVscu_rjDXy4fCwsNBseuYOo8_gjohRg_iWl1ihtPEbpO874TBGvtdfYaTMB3u7Zahlm9J4DFGcMaQxravelKy9PNOy9bOl4kLcRQWHGS-eMGkH-dyJgWSpBVkxoXM');">
+</div>
+<!-- Badges -->
+<div class="absolute top-3 left-3 flex flex-col items-start gap-2">
+<div class="bg-surface-light/90 dark:bg-black/60 backdrop-blur text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shadow-sm text-text-main dark:text-white flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified</span> Digital COA
+                                    </div>
+</div>
+<!-- Overlay Actions -->
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<button class="bg-white text-black px-6 py-3 rounded-full font-bold text-sm transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 shadow-lg hover:bg-gray-50">
+                                        Quick View
+                                    </button>
+</div>
+<!-- Wishlist -->
+<button class="absolute top-3 right-3 p-2 bg-white/80 dark:bg-black/50 rounded-full hover:bg-white dark:hover:bg-black transition-colors">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-lg leading-tight group-hover:text-primary transition-colors cursor-pointer">Blue Ethereal</h3>
+<p class="text-sm text-text-muted mt-1">Elena Voro, 2023</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-primary text-lg">$4,200</p>
+</div>
+</div>
+</div>
+<!-- Card 2 (Spans 2 rows visually by being taller/featured style logic if using masonry, but sticking to grid for CSS safety) -->
+<div class="group flex flex-col gap-4">
+<div class="relative w-full aspect-[3/4] rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800 shadow-sm transition-shadow hover:shadow-xl">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-in-out group-hover:scale-110" data-alt="Modern sculpture white marble organic shapes" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDaQWMGJHX7rP9KgIx2l9w5oEHQwa3Sy0umxD7dCnPHThB5_TyK1sEvIBLPbO_M8D2v3UzeZToPhwCc87o5moLHJ5GOXb0hUaH7-shcP1b4Ikj5gAR3GHaAhv6_9SFIIEwvRNa5F9QfFS-PcOb4DQjMXouapWt3tj9wlYPBmQ25aFE9_NiaEVbMcNLFkr7NqB08kxZnf7kKVJAEPFX1Avc3NOhHJyuvUKcVXC0PBb7NuR40SxCdSQZnku2OT9VItTtEbNbBtmWMRSc');">
+</div>
+<div class="absolute top-3 left-3 flex flex-col items-start gap-2">
+<div class="bg-surface-light/90 dark:bg-black/60 backdrop-blur text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shadow-sm text-text-main dark:text-white flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-green-600">lock</span> Escrow Secure
+                                    </div>
+</div>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<button class="bg-white text-black px-6 py-3 rounded-full font-bold text-sm transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 shadow-lg hover:bg-gray-50">
+                                        Quick View
+                                    </button>
+</div>
+<button class="absolute top-3 right-3 p-2 bg-white/80 dark:bg-black/50 rounded-full hover:bg-white dark:hover:bg-black transition-colors">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-lg leading-tight group-hover:text-primary transition-colors cursor-pointer">Fluidity No. 5</h3>
+<p class="text-sm text-text-muted mt-1">Marcus Chen, 2024</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-primary text-lg">$12,500</p>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group flex flex-col gap-4">
+<div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800 shadow-sm transition-shadow hover:shadow-xl">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-in-out group-hover:scale-110" data-alt="Digital art glitch portrait pink and cyan" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuADOiMs8HJoh-w0Lb9f-Ggzcq_LaiFHBDU_v5sulAMUSv7vm5aODbdJQHbgRw22-vku2YpzLJwRxK3PIKr3bUWydQW5Y8K4-G_URJMNkvdsM-cLSGfgrRlmP6wxi0xCIuzYQJadSJgkVsfzhie-VbKNUSm0mXrGqwSQs-u-AMo3KYwrBcMoR8H3IPJ3nTRXGAH7cPybXsPKsTJ4QNgGQXRJk6yY7Zu2DgxcI2DrR06qduSeAbPTyamfnSil_aEQZmi6bOQYD5R2oH8');">
+</div>
+<div class="absolute top-3 left-3 flex flex-col items-start gap-2">
+<div class="bg-surface-light/90 dark:bg-black/60 backdrop-blur text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shadow-sm text-text-main dark:text-white flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified</span> Digital COA
+                                    </div>
+</div>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<button class="bg-white text-black px-6 py-3 rounded-full font-bold text-sm transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 shadow-lg hover:bg-gray-50">
+                                        Quick View
+                                    </button>
+</div>
+<button class="absolute top-3 right-3 p-2 bg-white/80 dark:bg-black/50 rounded-full hover:bg-white dark:hover:bg-black transition-colors">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-lg leading-tight group-hover:text-primary transition-colors cursor-pointer">Neon Soul</h3>
+<p class="text-sm text-text-muted mt-1">Sarah Jenkins, 2023</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-primary text-lg">$2,800</p>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group flex flex-col gap-4">
+<div class="relative w-full aspect-[3/4] rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800 shadow-sm transition-shadow hover:shadow-xl">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-in-out group-hover:scale-110" data-alt="Minimalist landscape painting beige and brown" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDKPcgStevN5DqHQVJ7eYptQTJ1pjlClDZqMozjvbu0x06QMqRUB91c-R1sYmhlxJobot3JmAg0xN2Av3vh_Zw08sqQnpXn2IUWA7dubqaQrRx4xaTqBLYCbTfKitbm6JJSZdhzYglJZIdm6IT6MBtVWVuV775ceTelV4P20aIzj4UH7-RU2oyG8NsizqJOaEqm64Vd_ZNRsmb-OOy_tsFUijU0yWigeK8YE0TF6xYz6PvD8tjRsHDh5ncDUPInwRi_OksIDJ1aysA');">
+</div>
+<div class="absolute top-3 left-3 flex flex-col items-start gap-2">
+<div class="bg-surface-light/90 dark:bg-black/60 backdrop-blur text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shadow-sm text-text-main dark:text-white flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified</span> Digital COA
+                                    </div>
+</div>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<button class="bg-white text-black px-6 py-3 rounded-full font-bold text-sm transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 shadow-lg hover:bg-gray-50">
+                                        Quick View
+                                    </button>
+</div>
+<button class="absolute top-3 right-3 p-2 bg-white/80 dark:bg-black/50 rounded-full hover:bg-white dark:hover:bg-black transition-colors">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-lg leading-tight group-hover:text-primary transition-colors cursor-pointer">Desert Silence</h3>
+<p class="text-sm text-text-muted mt-1">Elena Voro, 2022</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-primary text-lg">$5,600</p>
+</div>
+</div>
+</div>
+<!-- Card 5 (Col Span 2 visual weight in Grid) -->
+<div class="group flex flex-col gap-4 md:col-span-2">
+<div class="relative w-full aspect-[2/1] rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800 shadow-sm transition-shadow hover:shadow-xl">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-in-out group-hover:scale-105" data-alt="Wide panoramic abstract painting with red and orange textures" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDACme3hSAfTmW8k8rT-AjB8RXbL-CbnGonJvEC_QgvJYynM8T8kTdm7SM1XMmmRow8taZ8WIymg3WxI5J9G4FdEl6M32dfAgWXTFjjGKuQP7DPlKQb6EkAMLnThuZjcarYQBAJb0iAJ4aN347K3r4-81-d-U_vuX_9_CY0gqlT8OyOkwJxRQ3vgyuAooTxO0otMPkvut_Mre5toxJ2yNUBfxOswGj8jggq-xm3i5y9NjYRD9g_A-jMdlOQS_pWApqBSZtgOOx7FYo');">
+</div>
+<div class="absolute top-3 left-3 flex flex-col items-start gap-2">
+<div class="bg-surface-light/90 dark:bg-black/60 backdrop-blur text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shadow-sm text-text-main dark:text-white flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified</span> Digital COA
+                                    </div>
+<div class="bg-surface-light/90 dark:bg-black/60 backdrop-blur text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shadow-sm text-text-main dark:text-white flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-green-600">lock</span> Escrow Secure
+                                    </div>
+</div>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<button class="bg-white text-black px-6 py-3 rounded-full font-bold text-sm transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 shadow-lg hover:bg-gray-50">
+                                        Quick View
+                                    </button>
+</div>
+<button class="absolute top-3 right-3 p-2 bg-white/80 dark:bg-black/50 rounded-full hover:bg-white dark:hover:bg-black transition-colors">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-xl leading-tight group-hover:text-primary transition-colors cursor-pointer">Red Horizon (Masterpiece Series)</h3>
+<p class="text-sm text-text-muted mt-1">Marcus Chen, 2023</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-primary text-xl">$28,000</p>
+</div>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="group flex flex-col gap-4">
+<div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800 shadow-sm transition-shadow hover:shadow-xl">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-in-out group-hover:scale-110" data-alt="Charcoal sketch portrait of a woman" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB0-o67r6occOyVo27xEAxkR_98bRvwAxOqGItlL8lnyHpMju9R66w3Bf0Wdp-YELUPR4UDszHcy41aJMCpa2vvyIBML5I6zvwTQnvL43Qt1gu2J4O27CdaVbjxGeIp8OJnRPz_1awN_iHtpKIb4r817NuXqDdkSuL3cYyWzBjQSfzDu23sSbtwJ3tVb57_xvIk5xPvr5yV-l5O1rCfbkWMGAMuwqtO1omNCDyZiiAPpg6lCjSSk8i1e6eqCn52iTGCNJQ2M-tysNw');">
+</div>
+<div class="absolute top-3 left-3 flex flex-col items-start gap-2">
+<div class="bg-surface-light/90 dark:bg-black/60 backdrop-blur text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shadow-sm text-text-main dark:text-white flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified</span> Digital COA
+                                    </div>
+</div>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<button class="bg-white text-black px-6 py-3 rounded-full font-bold text-sm transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 shadow-lg hover:bg-gray-50">
+                                        Quick View
+                                    </button>
+</div>
+<button class="absolute top-3 right-3 p-2 bg-white/80 dark:bg-black/50 rounded-full hover:bg-white dark:hover:bg-black transition-colors">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-lg leading-tight group-hover:text-primary transition-colors cursor-pointer">Fade to Black</h3>
+<p class="text-sm text-text-muted mt-1">Sarah Jenkins, 2021</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-primary text-lg">$1,800</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination / Load More -->
+<div class="flex justify-center mt-16">
+<button class="border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-lg font-bold transition-all">
+                            Load More Artworks
+                        </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Trust Banner -->
+<div class="w-full bg-surface-light dark:bg-surface-dark border-t border-[#e4d6d3] dark:border-white/5 py-12">
+<div class="max-w-[1440px] mx-auto px-4 md:px-10">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="flex flex-col items-center text-center gap-3">
+<div class="size-12 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-700 dark:text-green-400 mb-2">
+<span class="material-symbols-outlined text-3xl">verified</span>
+</div>
+<h4 class="font-bold text-lg">Verified Authenticity</h4>
+<p class="text-sm text-text-muted max-w-xs">Every artwork comes with a blockchain-recorded Certificate of Authenticity.</p>
+</div>
+<div class="flex flex-col items-center text-center gap-3">
+<div class="size-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-700 dark:text-blue-400 mb-2">
+<span class="material-symbols-outlined text-3xl">lock</span>
+</div>
+<h4 class="font-bold text-lg">Secure Escrow</h4>
+<p class="text-sm text-text-muted max-w-xs">Funds are held safely in escrow until the artwork is delivered and verified.</p>
+</div>
+<div class="flex flex-col items-center text-center gap-3">
+<div class="size-12 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-700 dark:text-orange-400 mb-2">
+<span class="material-symbols-outlined text-3xl">package_2</span>
+</div>
+<h4 class="font-bold text-lg">Insured Shipping</h4>
+<p class="text-sm text-text-muted max-w-xs">Global shipping with full insurance coverage for peace of mind.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Simple Footer -->
+<footer class="bg-background-light dark:bg-background-dark py-8 text-center">
+<p class="text-xs text-text-muted">© 2024 Artiva Gallery. All rights reserved.</p>
+</footer>
+<!-- Floating Action Button for Mobile -->
+<button class="md:hidden fixed bottom-6 right-6 size-14 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center z-50">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="absolute top-3 right-3 size-2 rounded-full bg-white"></span>
+</button>
+</div>
+</body></html>

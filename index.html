@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Artiva - Premium Art Gallery</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&amp;family=Manrope:wght@400;500;700&amp;family=Nunito:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#cd543c",
+                        "background-light": "#efe2c2",
+                        "background-dark": "#1d2a27",
+                        "sage": "#8DA399",
+                        "charcoal": "#191110",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"],
+                        "header": ["Cinzel", "serif"],
+                        "body": ["Nunito", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                        'hover': '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.01)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for horizontal sections if needed */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Smooth transitions */
+        .transition-all-300 {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Subtle lift effect */
+        .hover-lift:hover {
+            transform: translateY(-4px);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-charcoal dark:text-background-light font-body antialiased selection:bg-primary selection:text-white">
+<!-- Top Navigation -->
+<nav class="sticky top-0 z-50 w-full bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-charcoal/5 dark:border-background-light/5 transition-colors duration-300">
+<div class="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
+<div class="flex items-center justify-between h-20">
+<!-- Logo -->
+<div class="flex items-center gap-2">
+<div class="text-primary">
+<span class="material-symbols-outlined text-3xl">gallery_thumbnail</span>
+</div>
+<a class="font-header text-2xl font-bold tracking-tight text-charcoal dark:text-white" href="#">ARTIVA</a>
+</div>
+<!-- Desktop Menu -->
+<div class="hidden md:flex items-center gap-8 lg:gap-12">
+<a class="text-charcoal dark:text-background-light/80 hover:text-primary dark:hover:text-primary text-sm font-semibold uppercase tracking-widest transition-colors" href="#">Artists</a>
+<a class="text-charcoal dark:text-background-light/80 hover:text-primary dark:hover:text-primary text-sm font-semibold uppercase tracking-widest transition-colors" href="#">Exhibitions</a>
+<a class="text-charcoal dark:text-background-light/80 hover:text-primary dark:hover:text-primary text-sm font-semibold uppercase tracking-widest transition-colors" href="#">Collections</a>
+<a class="text-charcoal dark:text-background-light/80 hover:text-primary dark:hover:text-primary text-sm font-semibold uppercase tracking-widest transition-colors" href="#">Journal</a>
+</div>
+<!-- Icons -->
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-charcoal/5 dark:hover:bg-white/10 transition-colors text-charcoal dark:text-white">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="p-2 rounded-full hover:bg-charcoal/5 dark:hover:bg-white/10 transition-colors text-charcoal dark:text-white hidden sm:block">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+<button class="p-2 rounded-full hover:bg-charcoal/5 dark:hover:bg-white/10 transition-colors text-charcoal dark:text-white relative">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="absolute top-1 right-1 h-2 w-2 bg-primary rounded-full"></span>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Hero Section -->
+<header class="relative w-full overflow-hidden pt-8 pb-16 lg:pt-12 lg:pb-24 px-4 sm:px-8 lg:px-12">
+<div class="max-w-[1440px] mx-auto">
+<div class="flex flex-col lg:flex-row gap-12 items-center">
+<!-- Text Content -->
+<div class="flex-1 space-y-8 lg:pr-12 order-2 lg:order-1 text-center lg:text-left">
+<div class="space-y-4">
+<span class="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-bold tracking-[0.2em] uppercase rounded-full">Featured Collection</span>
+<h1 class="font-header text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.1] text-charcoal dark:text-white">
+                            The Solace <br/><span class="text-primary italic font-serif">of Light</span>
+</h1>
+<p class="font-body text-lg sm:text-xl text-charcoal/70 dark:text-white/70 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+                            A new perspective on modern minimalism by featured artist Elena Kogan. Experience the calm of curated aesthetics in our latest exhibition.
+                        </p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+<button class="group relative px-8 py-4 bg-primary text-white text-sm font-bold tracking-widest uppercase rounded-lg overflow-hidden transition-all-300 hover:shadow-lg hover:bg-primary/90">
+<span class="relative z-10 flex items-center gap-2">
+                                View Collection 
+                                <span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</span>
+</button>
+<button class="px-8 py-4 bg-transparent border border-charcoal/20 dark:border-white/20 text-charcoal dark:text-white text-sm font-bold tracking-widest uppercase rounded-lg hover:bg-charcoal/5 dark:hover:bg-white/5 transition-all-300">
+                            Learn More
+                        </button>
+</div>
+</div>
+<!-- Hero Image -->
+<div class="flex-1 w-full order-1 lg:order-2">
+<div class="relative aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/3] w-full rounded-xl overflow-hidden shadow-2xl group">
+<div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent z-10"></div>
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" data-alt="Abstract warm beige and terracotta oil painting with textured strokes" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBGJNJhoK5f2PrrPWnpzo1awnUty0hgk6Wypff4TsEEZE106cF2pUiEOBWXsHz7kpFO-yAiGE5_erfgLVAqZ11WksrGWQk8UPoBXFH7Slie_c2ZJ42rJNq0l0pEMCSDjsq9XgsCWJWY4mqoUSkbSUMeitS9Pio6Z91kFOHkbLB36WMQ7hxX7CWnsXxogFAzL5hEOpm1c7_BnBgPtsWQLDxHo7qTKwvXStzXYTNWD2XsnkBQX6xc22yHaYosMqU5EJ3dwnuKPzYc7bo');">
+</div>
+<!-- Floating Artist Card -->
+<div class="absolute bottom-6 left-6 right-6 z-20 backdrop-blur-md bg-white/10 dark:bg-black/40 border border-white/20 p-4 rounded-lg flex items-center justify-between">
+<div>
+<p class="text-white text-xs font-bold uppercase tracking-wider mb-1">Featured Artwork</p>
+<p class="text-white font-header text-lg">Autumnal Rhythms No. 4</p>
+</div>
+<div class="h-10 w-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm cursor-pointer hover:bg-white/30 transition-colors">
+<span class="material-symbols-outlined text-white">play_arrow</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Curator's Picks Section -->
+<section class="py-16 px-4 sm:px-8 lg:px-12 bg-white/50 dark:bg-black/10">
+<div class="max-w-[1440px] mx-auto">
+<div class="flex flex-col sm:flex-row justify-between items-end mb-10 gap-4">
+<div>
+<h2 class="font-header text-3xl sm:text-4xl font-bold text-charcoal dark:text-white mb-2">Curator's Picks</h2>
+<p class="font-body text-charcoal/60 dark:text-white/60">Hand-selected masterpieces for the discerning collector.</p>
+</div>
+<a class="group flex items-center gap-1 text-primary text-sm font-bold uppercase tracking-widest hover:text-primary/80 transition-colors" href="#">
+                    View All Picks
+                    <span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="group flex flex-col gap-4 cursor-pointer">
+<div class="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-gray-200">
+<div class="absolute top-4 right-4 z-10 px-2 py-1 bg-white/90 dark:bg-black/80 backdrop-blur-sm rounded text-[10px] font-bold uppercase tracking-wide text-charcoal dark:text-white border border-charcoal/10 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary">verified</span> Digital COA
+                        </div>
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 ease-in-out group-hover:scale-110" data-alt="Moody abstract landscape painting with deep blues and creams" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDdaEqj9zzc8tMQ7n57FrlV4jiLolGFYHJjCUdhJcKz59r1bfjJB_ciOCLkPMH-q5etCjDeriRqIEz2R_GzSlWWie73s-kZWC3u--xS7iW2hbZu-kLKdxJL0BSYDjowmNzjM7fpn6wvYPjzCrQYfb6_1HA8eX_9OaR0PjvAS6v9oZSsf0tQ1E1dIzIUPezAM7W3UoqA95YMBaDYWlEa8s1CtE7_x6923i0wzxrjoGsNlYHrj1dbLRPBLaxPygfIQc-uFYyKqotkhrE');"></div>
+<div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
+<div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out bg-gradient-to-t from-black/80 to-transparent">
+<button class="w-full py-3 bg-white text-charcoal font-bold text-sm uppercase tracking-wide rounded hover:bg-primary hover:text-white transition-colors">
+                                View Details
+                            </button>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-display text-xl font-bold text-charcoal dark:text-white group-hover:text-primary transition-colors">Midnight Reverie</h3>
+<span class="font-display font-medium text-charcoal dark:text-white">$12,000</span>
+</div>
+<p class="text-charcoal/60 dark:text-white/60 text-sm mt-1">Oil on Canvas • 24x36 in</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group flex flex-col gap-4 cursor-pointer">
+<div class="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-gray-200">
+<div class="absolute top-4 right-4 z-10 px-2 py-1 bg-white/90 dark:bg-black/80 backdrop-blur-sm rounded text-[10px] font-bold uppercase tracking-wide text-charcoal dark:text-white border border-charcoal/10 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary">verified</span> Digital COA
+                        </div>
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 ease-in-out group-hover:scale-110" data-alt="Vibrant abstract art with gold and reddish hues" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBszu0HKu1ZmQgYoflYRX0OcxpEl6VbaTv5N-QDqXku9nE5RQWMrh8edMmlOmIwoN8HTu2LPmU1LbTQtsQAOfVMKMmfunTau6GPj2DO4kLagFILd7xTi748uj8XLTvCKT5HlurDB_wtHysu0es3uMt3c_1O59Trxskxww8fl6OCTWXE_ds1Xq_88nhpQyyLd8M3f2O8YftuLct2EJWSasf9S-gGRQF8y3KOQJnb0OXPtzGqKF8rGNr0RtyomPuxvcEruxPgEhl9mXw');"></div>
+<div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
+<div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out bg-gradient-to-t from-black/80 to-transparent">
+<button class="w-full py-3 bg-white text-charcoal font-bold text-sm uppercase tracking-wide rounded hover:bg-primary hover:text-white transition-colors">
+                                View Details
+                            </button>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-display text-xl font-bold text-charcoal dark:text-white group-hover:text-primary transition-colors">Golden Haze</h3>
+<span class="font-display font-medium text-charcoal dark:text-white">$8,500</span>
+</div>
+<p class="text-charcoal/60 dark:text-white/60 text-sm mt-1">Acrylic &amp; Gold Leaf • 30x30 in</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group flex flex-col gap-4 cursor-pointer">
+<div class="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-gray-200">
+<div class="absolute top-4 right-4 z-10 px-2 py-1 bg-white/90 dark:bg-black/80 backdrop-blur-sm rounded text-[10px] font-bold uppercase tracking-wide text-charcoal dark:text-white border border-charcoal/10 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary">verified</span> Digital COA
+                        </div>
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 ease-in-out group-hover:scale-110" data-alt="Deep cerulean blue texture painting with swirling patterns" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD8IV0IPxZ6qBpMDeCL5nHdHjfZfEUKhQDhdBTqQj5K3qUcQEexw6pov2gAAdmZzrcfeifWT1VIKopfLgzy2_T-Lou0uqLoOxOnYwt44ePkuu-imHjaUhE4LssF30Kd2jrpCITMq3kw_U1qxNYna-BUhxECALhCxfk51mnhvcNZKZgVYE4Hav13fw-iM-tNxock8CFHvEOV8kBC1ZgjrTNNvTMEqpsvuWmAM_8QP02c0WyPWxS4BILexy1fPhGyI2hmw2kOgkPpmEo');"></div>
+<div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
+<div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out bg-gradient-to-t from-black/80 to-transparent">
+<button class="w-full py-3 bg-white text-charcoal font-bold text-sm uppercase tracking-wide rounded hover:bg-primary hover:text-white transition-colors">
+                                View Details
+                            </button>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-display text-xl font-bold text-charcoal dark:text-white group-hover:text-primary transition-colors">Cerulean Depths</h3>
+<span class="font-display font-medium text-charcoal dark:text-white">$15,000</span>
+</div>
+<p class="text-charcoal/60 dark:text-white/60 text-sm mt-1">Mixed Media • 40x50 in</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Editorial / Studio Section -->
+<section class="py-16 lg:py-24 px-4 sm:px-8 lg:px-12">
+<div class="max-w-[1440px] mx-auto bg-charcoal dark:bg-black/40 rounded-2xl overflow-hidden text-background-light">
+<div class="flex flex-col lg:flex-row">
+<!-- Video/Image Side -->
+<div class="lg:w-1/2 relative min-h-[400px]">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Artist working in a sunlit studio with large canvases" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDV6VyCtv_aRlVQCMYURQaW8yW17DGA3dfPquim6fGi8tepuGPcArpp2_r_lYeK4pltU-Qk34ImMHWryWemhNaC3TKgWCearjlaaqzFcLRagSTaH_1m1FxMKE7rJTRhfhvltv8NfCU7Q2ZGKTJMFB4V-vPj2hOmJYsQBorKayCYKVgiyWYJDP45RS-NRHiD3owmOrqPBeIG2_yYhTFlQ9eTFz5n_OTVGXmqk7SCTBXYG-426E3T0mZGVzD2T1WcSd1QVbhCqbo9Ry8');">
+</div>
+<div class="absolute inset-0 bg-black/20 flex items-center justify-center group cursor-pointer">
+<div class="h-20 w-20 bg-background-light/20 backdrop-blur-md rounded-full flex items-center justify-center border border-background-light/30 group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-4xl text-background-light">play_arrow</span>
+</div>
+</div>
+</div>
+<!-- Content Side -->
+<div class="lg:w-1/2 p-10 lg:p-20 flex flex-col justify-center">
+<span class="text-primary text-sm font-bold uppercase tracking-widest mb-4 block">In The Studio</span>
+<h2 class="font-header text-4xl lg:text-5xl font-bold mb-6 text-background-light">Julian Vane: <br/>Sculpting Time</h2>
+<p class="font-body text-background-light/80 text-lg leading-relaxed mb-8">
+                        Discover the process behind the sculpture. A blend of classical technique and modern vision, Vane's work challenges our perception of permanence and decay in the digital age.
+                    </p>
+<div class="flex gap-6 items-center">
+<button class="px-8 py-3 bg-primary text-white text-sm font-bold tracking-widest uppercase rounded-lg hover:bg-primary/90 transition-colors">
+                            Watch Reel
+                        </button>
+<a class="text-background-light hover:text-primary transition-colors text-sm font-bold uppercase tracking-widest" href="#">Read Interview</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Upcoming Exhibitions (Sage Background) -->
+<section class="py-24 px-4 sm:px-8 lg:px-12 bg-[#8DA399] dark:bg-[#4a5a52] text-white overflow-hidden relative">
+<!-- Decorative subtle pattern -->
+<div class="absolute top-0 right-0 w-full h-full opacity-10 pointer-events-none" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 40px 40px;">
+</div>
+<div class="max-w-[1440px] mx-auto relative z-10">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12">
+<div>
+<span class="block text-white/80 text-sm font-bold uppercase tracking-[0.2em] mb-3">Calendar</span>
+<h2 class="font-header text-4xl lg:text-5xl font-bold text-white">Upcoming Exhibitions</h2>
+</div>
+<div class="hidden md:block">
+<a class="inline-flex items-center gap-2 text-white font-bold uppercase tracking-widest border-b border-white/30 pb-1 hover:border-white transition-colors" href="#">
+                        Full Calendar <span class="material-symbols-outlined text-sm">calendar_month</span>
+</a>
+</div>
+</div>
+<div class="flex flex-col lg:flex-row gap-8">
+<!-- Large Feature -->
+<div class="lg:w-2/3 group relative overflow-hidden rounded-xl aspect-[16/9] cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" data-alt="Modern art gallery interior with clean white walls and visitors" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAa-K6WR7CQf8Yl7HNs2PGa5d_ifKqM8iL5EO1IvkcLl3VmjgfFZfE4XFtCtIC0byjQziXEZArBNks9BJY6-ySI2UptfxrjDlkC4rdF_FLHZjyAqpam84qvdpoJkkMF_kMWUj3v5pK6113a70xsTnlMZJIVWOpAKx4sMvi90taKNVVLrjqdy7Vo8q_W_pxbjxl4DcbFL_ZNMu9MPacraq96siI3tM29tIWruCEZSpYzhnObv9Io0nOe9pIYtEwqcAvQSdHywGjMG4o');">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 sm:p-12">
+<div class="flex items-center gap-4 mb-4">
+<span class="px-3 py-1 bg-white text-charcoal text-xs font-bold uppercase tracking-wide rounded">Opening Oct 12</span>
+<span class="text-white/80 text-sm font-medium">Paris, France</span>
+</div>
+<h3 class="font-header text-3xl sm:text-4xl font-bold text-white mb-2">The Architecture of Silence</h3>
+<p class="text-white/80 max-w-lg">An immersive journey through brutalist forms and negative space.</p>
+</div>
+</div>
+<!-- Vertical List -->
+<div class="lg:w-1/3 flex flex-col gap-4">
+<!-- Item 1 -->
+<div class="flex-1 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/20 transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-bold uppercase tracking-wide text-white/70">Nov 05 — Dec 20</span>
+<span class="material-symbols-outlined text-white/50 group-hover:text-white transition-colors">arrow_outward</span>
+</div>
+<h4 class="font-header text-xl font-bold text-white mb-1">Neon &amp; Nature</h4>
+<p class="text-sm text-white/70">Tokyo, Japan</p>
+</div>
+<!-- Item 2 -->
+<div class="flex-1 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/20 transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-bold uppercase tracking-wide text-white/70">Jan 10 — Feb 14</span>
+<span class="material-symbols-outlined text-white/50 group-hover:text-white transition-colors">arrow_outward</span>
+</div>
+<h4 class="font-header text-xl font-bold text-white mb-1">Renaissance Redux</h4>
+<p class="text-sm text-white/70">Florence, Italy</p>
+</div>
+<!-- Item 3 -->
+<div class="flex-1 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/20 transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-bold uppercase tracking-wide text-white/70">Mar 01 — Mar 30</span>
+<span class="material-symbols-outlined text-white/50 group-hover:text-white transition-colors">arrow_outward</span>
+</div>
+<h4 class="font-header text-xl font-bold text-white mb-1">Abstract Realities</h4>
+<p class="text-sm text-white/70">New York, USA</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Curated Collections Carousel -->
+<section class="py-16 px-4 sm:px-8 lg:px-12">
+<div class="max-w-[1440px] mx-auto">
+<div class="flex justify-between items-center mb-10">
+<h2 class="font-header text-3xl font-bold text-charcoal dark:text-white">Shop by Collection</h2>
+<div class="flex gap-2">
+<button class="h-10 w-10 rounded-full border border-charcoal/20 flex items-center justify-center hover:bg-charcoal hover:text-white transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<button class="h-10 w-10 rounded-full border border-charcoal/20 flex items-center justify-center hover:bg-charcoal hover:text-white transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="flex gap-6 overflow-x-auto no-scrollbar pb-8 snap-x">
+<!-- Collection Card 1 -->
+<div class="snap-start min-w-[280px] sm:min-w-[320px] group cursor-pointer">
+<div class="relative aspect-[3/4] rounded-xl overflow-hidden mb-4">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Abstract geometric shapes in muted earth tones" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCNA6HRRHSvhCXzR11WTPrsxJvgoO_BjiFvlp5BNvXbTaEJnAmdskqGShwuWU_SuNIyrcc-s5WUGQPPxdMmW4shkqrm01bhz0pHoZCPnjSvMv-ziM4J9y6ihzC-2I1fyWyh3fVCTaGs8KCAoo1WGY_ttILZoUkAoKDIKg6kDVyB2PUdws_XWaGea-TxBHfBtuvDA5v4P_xUxeAJpnyIYiyodRiZX0uBPoOGWZPpe2mHvcsY3V4JP5j-x64UVdaGYP1sknGs2gOxe5c');"></div>
+</div>
+<h3 class="font-header text-xl font-bold text-charcoal dark:text-white">Modern Cubism</h3>
+<p class="text-sm text-charcoal/60 dark:text-white/60">Geometric perspectives for the bold.</p>
+</div>
+<!-- Collection Card 2 -->
+<div class="snap-start min-w-[280px] sm:min-w-[320px] group cursor-pointer">
+<div class="relative aspect-[3/4] rounded-xl overflow-hidden mb-4">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Soft watercolor textures in pastel colors" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBlC6WjFeMWMZIcvgSr4ixzs1nc1Kvvb9VoB398jUk9aOlKkcdvyMTwqibJK565XBT_M8BHAWyxJdajCumP328EjpZyles51xfLUUIZyYEnzA2keWg6aRs5v3u0rUyAQFlbhgrCyNf_7wKSB1dHubfmfioI5bBXQPloeSlx7AiPxsAD_8Bub5BReNWCrCyId2ZZR4aJqGXF72IiEOLk3JzIQFEx1lCu6XHARJu49vFRB_wdmIzoqCeRRuxtzBMD2eskG6sD61Q1aF4');"></div>
+</div>
+<h3 class="font-header text-xl font-bold text-charcoal dark:text-white">Ethereal watercolors</h3>
+<p class="text-sm text-charcoal/60 dark:text-white/60">Fluidity and grace in every stroke.</p>
+</div>
+<!-- Collection Card 3 -->
+<div class="snap-start min-w-[280px] sm:min-w-[320px] group cursor-pointer">
+<div class="relative aspect-[3/4] rounded-xl overflow-hidden mb-4">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Surreal digital art with floating objects" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuArXvG5dPz7x2fEoY2E9-5yrHv1bw2iCqjnQCNg-bBj1G4lRAvMiIsUpXzi1M9bsUaFhx2uaxE2zZV0FNehvu6qbdH9IiIuQAccsC7s2Mw2O4X2GvQqAiLjGyxK1Gu_TqNyPZzHOgcnonkJYKq_9btJbPSH_GVDf-EMnTaEk6IOAc4DwcD55oN6fmXLwjUh3P_4UJen6_MJBdWpAYT7l6BQ08WPwX41Jwl2bFKN05k3BgfJ9ZHrHYo4hEegvPwp7noY7MkwgsRN-Sc');"></div>
+</div>
+<h3 class="font-header text-xl font-bold text-charcoal dark:text-white">Digital Surrealism</h3>
+<p class="text-sm text-charcoal/60 dark:text-white/60">Where dreams meet pixels.</p>
+</div>
+<!-- Collection Card 4 -->
+<div class="snap-start min-w-[280px] sm:min-w-[320px] group cursor-pointer">
+<div class="relative aspect-[3/4] rounded-xl overflow-hidden mb-4">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Classical style portrait painting with dark background" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBwhJFSBnu-1PTGGtiDQG37Fz6p4KM_Fwe-xkX1LWCnN9Op9LwRVifTx-C7Ljt4LYlC1TWjARe5KRWncPd1ZrSnrWXERto_H6PujuSqKXkarAX8diLkhsVCc6urfmd4xTviOndLFO6Y9_jnIM2TXLOTuLWdifZrAoO691-PPoJn6BF3PT7dX8M-Qoocu00XpSxmlawg54ONTOgNsvYTnuCD8nzO2qa1gG8nNzwqBrz4WvQDkFjWTZpFyM4R5Sm8b5N3bZhLu5cW3fo');"></div>
+</div>
+<h3 class="font-header text-xl font-bold text-charcoal dark:text-white">Classic Revival</h3>
+<p class="text-sm text-charcoal/60 dark:text-white/60">Timeless techniques, modern subjects.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Signals -->
+<section class="border-t border-charcoal/10 dark:border-white/10 bg-white/30 dark:bg-black/20">
+<div class="max-w-[1440px] mx-auto px-4 py-12 sm:px-8 lg:px-12">
+<div class="flex flex-col md:flex-row justify-around gap-8 md:gap-4 text-center md:text-left">
+<div class="flex flex-col items-center md:items-start gap-3">
+<div class="p-3 bg-sage/20 text-[#4a5a52] dark:text-sage rounded-full">
+<span class="material-symbols-outlined text-2xl">verified_user</span>
+</div>
+<div>
+<h4 class="font-display font-bold text-lg text-charcoal dark:text-white">Authenticity Guaranteed</h4>
+<p class="text-sm text-charcoal/60 dark:text-white/60">Every piece verified by experts with digital COA.</p>
+</div>
+</div>
+<div class="flex flex-col items-center md:items-start gap-3">
+<div class="p-3 bg-sage/20 text-[#4a5a52] dark:text-sage rounded-full">
+<span class="material-symbols-outlined text-2xl">lock</span>
+</div>
+<div>
+<h4 class="font-display font-bold text-lg text-charcoal dark:text-white">Secure Escrow</h4>
+<p class="text-sm text-charcoal/60 dark:text-white/60">Funds held securely until delivery is confirmed.</p>
+</div>
+</div>
+<div class="flex flex-col items-center md:items-start gap-3">
+<div class="p-3 bg-sage/20 text-[#4a5a52] dark:text-sage rounded-full">
+<span class="material-symbols-outlined text-2xl">public</span>
+</div>
+<div>
+<h4 class="font-display font-bold text-lg text-charcoal dark:text-white">Global Shipping</h4>
+<p class="text-sm text-charcoal/60 dark:text-white/60">Insured, white-glove delivery worldwide.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-background-dark text-background-light pt-20 pb-10 px-4 sm:px-8 lg:px-12 border-t border-white/5">
+<div class="max-w-[1440px] mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+<!-- Brand -->
+<div class="space-y-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-3xl text-primary">gallery_thumbnail</span>
+<span class="font-header text-2xl font-bold tracking-tight text-white">ARTIVA</span>
+</div>
+<p class="text-background-light/60 text-sm leading-relaxed max-w-xs">
+                        The premier digital marketplace for curated fine art. Connecting visionary artists with discerning collectors worldwide.
+                    </p>
+<div class="flex gap-4">
+<a class="text-background-light/60 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">photo_camera</span></a> <!-- Using photo_camera as placeholder for insta -->
+<a class="text-background-light/60 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">alternate_email</span></a> <!-- Twitter/X -->
+<a class="text-background-light/60 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">play_circle</span></a> <!-- Youtube -->
+</div>
+</div>
+<!-- Links 1 -->
+<div>
+<h4 class="font-bold text-white mb-6 uppercase tracking-widest text-sm">Marketplace</h4>
+<ul class="space-y-4 text-sm text-background-light/60">
+<li><a class="hover:text-primary transition-colors" href="#">Browse Art</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Curated Collections</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Auction Calendar</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Art Advisory</a></li>
+</ul>
+</div>
+<!-- Links 2 -->
+<div>
+<h4 class="font-bold text-white mb-6 uppercase tracking-widest text-sm">Company</h4>
+<ul class="space-y-4 text-sm text-background-light/60">
+<li><a class="hover:text-primary transition-colors" href="#">About Artiva</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Journal</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+<!-- Newsletter -->
+<div>
+<h4 class="font-bold text-white mb-6 uppercase tracking-widest text-sm">Join the Inner Circle</h4>
+<p class="text-sm text-background-light/60 mb-4">Receive invitations to private viewings and exclusive drops.</p>
+<form class="flex flex-col gap-2">
+<input class="bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-primary transition-colors" placeholder="Your email address" type="email"/>
+<button class="bg-primary text-white font-bold uppercase tracking-widest text-sm py-3 rounded-lg hover:bg-primary/90 transition-colors" type="button">Subscribe</button>
+</form>
+</div>
+</div>
+<div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-background-light/40">
+<p>© 2024 Artiva Gallery. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-white transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

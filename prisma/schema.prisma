@@ -1,0 +1,102 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// 1. USER
+model User {
+  id            Int      @id @default(autoincrement())
+  username      String   @unique
+  email         String   @unique
+  password_hash String
+  role          String   @default("member") 
+  created_at    DateTime @default(now())
+
+  artistProfile ArtistProfile?
+  artworks      Artwork[]
+  articles      Article[]
+  workshops     Workshop[]
+}
+
+// 2. PROFIL SENIMAN
+model ArtistProfile {
+  id              Int     @id @default(autoincrement())
+  user_id         Int     @unique
+  display_name    String
+  bio             String? @db.Text
+  profile_pic_url String?
+  location        String?
+  instagram       String?
+
+  user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+// 3. KATEGORI
+model Category {
+  id          Int               @id @default(autoincrement())
+  name        String            @unique
+  slug        String            @unique
+  description String?           @db.Text
+  artworks    ArtworkCategory[]
+}
+
+// 4. KARYA SENI
+model Artwork {
+  id               Int      @id @default(autoincrement())
+  artist_id        Int
+  title            String
+  description      String   @db.Text
+  price            Decimal  @default(0.00) @db.Decimal(12, 2)
+  stock            Int      @default(1)
+  created_at       DateTime @default(now())
+
+  artist     User              @relation(fields: [artist_id], references: [id], onDelete: Cascade)
+  images     ArtworkImage[]
+  categories ArtworkCategory[]
+}
+
+model ArtworkCategory {
+  artwork_id  Int
+  category_id Int
+  artwork     Artwork  @relation(fields: [artwork_id], references: [id], onDelete: Cascade)
+  category    Category @relation(fields: [category_id], references: [id], onDelete: Cascade)
+
+  @@id([artwork_id, category_id])
+}
+
+model ArtworkImage {
+  id         Int     @id @default(autoincrement())
+  artwork_id Int
+  image_url  String
+  is_primary Boolean @default(false)
+
+  artwork Artwork @relation(fields: [artwork_id], references: [id], onDelete: Cascade)
+}
+
+// 5. ARTIKEL
+model Article {
+  id        Int      @id @default(autoincrement())
+  author_id Int
+  title     String
+  slug      String   @unique
+  content   String   @db.Text
+  status    String   @default("draft")
+  
+  author    User     @relation(fields: [author_id], references: [id])
+}
+
+// 6. WORKSHOP
+model Workshop {
+  id            Int      @id @default(autoincrement())
+  instructor_id Int
+  title         String
+  start_date    DateTime
+  price         Decimal  @default(0.00) @db.Decimal(12, 2)
+  location_type String 
+
+  instructor User @relation(fields: [instructor_id], references: [id], onDelete: Cascade)
+}

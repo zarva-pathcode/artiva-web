@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Artiva - Elena Vostrova</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&amp;family=EB+Garamond:ital,wght@0,400;0,500;1,400&amp;family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#cd543c",
+              "background-light": "#efe2c2",
+              "background-dark": "#1d2a27",
+              "studio-sage": "#8da399",
+            },
+            fontFamily: {
+              "display": ["Manrope", "sans-serif"],
+              "serif": ["Cinzel", "serif"],
+              "body": ["EB Garamond", "serif"],
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for horizontal scrolling elements */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#191110] dark:text-[#efe2c2] transition-colors duration-300 font-display selection:bg-primary selection:text-white">
+<!-- TopNavBar -->
+<nav class="sticky top-0 z-50 w-full border-b border-[#dcd1b2] dark:border-[#2a3835] bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md">
+<div class="px-6 md:px-12 lg:px-20 flex justify-center py-4">
+<div class="flex w-full max-w-[1440px] items-center justify-between">
+<div class="flex items-center gap-8">
+<a class="flex items-center gap-3 text-[#191110] dark:text-[#efe2c2] hover:opacity-80 transition-opacity" href="#">
+<span class="material-symbols-outlined text-3xl text-primary">filter_vintage</span>
+<h2 class="text-xl font-bold tracking-widest uppercase font-serif">Artiva</h2>
+</a>
+<div class="hidden lg:flex items-center gap-8 ml-8">
+<a class="text-sm font-semibold uppercase tracking-wider hover:text-primary transition-colors" href="#">Artists</a>
+<a class="text-sm font-semibold uppercase tracking-wider hover:text-primary transition-colors" href="#">Exhibitions</a>
+<a class="text-sm font-semibold uppercase tracking-wider hover:text-primary transition-colors" href="#">Fairs</a>
+<a class="text-sm font-semibold uppercase tracking-wider hover:text-primary transition-colors" href="#">Editorial</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex relative group">
+<input class="bg-transparent border-b border-[#191110] dark:border-[#efe2c2] py-1 pr-8 pl-0 text-sm focus:outline-none focus:border-primary placeholder:text-gray-500 dark:placeholder:text-gray-400 w-40 focus:w-64 transition-all duration-300" placeholder="Search..."/>
+<span class="material-symbols-outlined absolute right-0 top-1 text-lg pointer-events-none">search</span>
+</div>
+<a class="text-sm font-semibold uppercase tracking-wider hover:text-primary transition-colors" href="#">Login</a>
+<button class="bg-primary text-white rounded-full p-2 hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined text-xl block">shopping_bag</span>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex flex-col items-center w-full">
+<!-- Hero Section -->
+<section class="w-full max-w-[1440px] px-6 md:px-12 lg:px-20 py-12 lg:py-20">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+<!-- Portrait (Left) -->
+<div class="lg:col-span-5 flex flex-col gap-4 relative group">
+<div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden shadow-xl">
+<div class="absolute inset-0 bg-gray-200 animate-pulse"></div>
+<img alt="Portrait of artist Elena Vostrova looking contemplative" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Portrait of artist Elena Vostrova looking contemplative" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNT6mr1LNvmWDevGgTvSOZ4j642EIR86GTUvAqzm7uUFp15zXgv8a4JMzsx_ch60LbzJkWsxVuizHymwI40DlcNZkbTBDN7CbrwqQfb2pjznnfO3CKWH33QlF_MLZ5TYDmGZH13MUr7Ssl8sd9g_nUj_6wAztg-4BDbgOUpzV7FIHlhDNAdO8Gmzn0j0NJJQpuY5ziJhnPbgzPDvODTqdrE7h6tJ0FEg115wSzS54jDuHHZOSzEeuVSkoTE8_miVi4wFCNGw7U2es"/>
+</div>
+<div class="flex justify-between items-center text-xs uppercase tracking-widest opacity-60">
+<span>Milan, Italy</span>
+<span>Est. 2014</span>
+</div>
+</div>
+<!-- Biography (Right) -->
+<div class="lg:col-span-7 flex flex-col justify-center h-full pt-4 lg:pt-12">
+<h1 class="text-5xl md:text-7xl lg:text-8xl font-serif font-medium text-[#191110] dark:text-[#efe2c2] leading-[0.9] tracking-tight mb-6">
+                        Elena<br/><span class="ml-12 md:ml-24 text-primary">Vostrova</span>
+</h1>
+<div class="flex flex-wrap gap-4 mb-10">
+<div class="flex items-center gap-2 px-3 py-1 rounded-full border border-[#191110]/10 dark:border-[#efe2c2]/20">
+<span class="material-symbols-outlined text-lg text-primary">verified</span>
+<span class="text-xs font-bold uppercase tracking-wider">Verified Artist</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 rounded-full border border-[#191110]/10 dark:border-[#efe2c2]/20">
+<span class="material-symbols-outlined text-lg text-primary">workspace_premium</span>
+<span class="text-xs font-bold uppercase tracking-wider">Digital COA</span>
+</div>
+</div>
+<div class="prose dark:prose-invert max-w-2xl">
+<p class="font-body text-xl md:text-2xl leading-relaxed text-[#191110]/80 dark:text-[#efe2c2]/90 mb-8">
+                            Capturing the ephemeral dance between light and stone, Elena's work explores the boundaries of form and negative space. Her signature 'Silent Echo' series has been featured in galleries across Europe, challenging the viewer to find weight in the invisible.
+                        </p>
+<p class="font-body text-lg leading-relaxed text-[#191110]/60 dark:text-[#efe2c2]/70 mb-10">
+                            Born in the historic streets of Siena and now creating from her sun-drenched studio in Milan, Vostrova merges classical Italian sculpting techniques with a brutalist modern sensibility. She works primarily with Carrara marble and reclaimed industrial steel.
+                        </p>
+</div>
+<div class="flex flex-wrap gap-4 mt-auto">
+<button class="bg-primary text-white hover:bg-[#b0422d] transition-colors px-8 py-4 rounded-xl font-bold uppercase tracking-wider text-sm shadow-lg shadow-primary/20">
+                            Inquire about Works
+                        </button>
+<button class="bg-white dark:bg-white/10 hover:bg-gray-50 dark:hover:bg-white/20 transition-colors px-8 py-4 rounded-xl font-bold uppercase tracking-wider text-sm border border-[#191110]/10 dark:border-transparent">
+                            Follow Artist
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Studio Section (Unique Theme Override) -->
+<section class="w-full bg-studio-sage text-white py-16 lg:py-24 my-12 overflow-hidden relative">
+<div class="absolute top-0 right-0 p-12 opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-9xl">brush</span>
+</div>
+<div class="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+<div class="flex flex-col lg:flex-row gap-12 lg:items-center">
+<!-- Content -->
+<div class="lg:w-1/2 flex flex-col gap-6 z-10">
+<div class="flex items-center gap-3 opacity-80 mb-2">
+<span class="w-12 h-[1px] bg-white"></span>
+<span class="uppercase tracking-widest text-sm font-semibold">The Process</span>
+</div>
+<h2 class="text-4xl md:text-5xl font-serif font-medium leading-tight">
+                            Inside the Studio:<br/>
+<span class="italic font-body opacity-90">Drafting 'Silent Echo'</span>
+</h2>
+<p class="font-body text-xl leading-relaxed opacity-80 max-w-lg">
+                            "The stone dictates the form. I am merely the listener, removing the excess noise until the silence speaks."
+                        </p>
+<div class="mt-4 flex items-center gap-4">
+<div class="h-12 w-12 rounded-full border border-white/30 flex items-center justify-center">
+<span class="material-symbols-outlined">play_arrow</span>
+</div>
+<span class="text-sm font-bold uppercase tracking-wider">Watch Full Reel</span>
+</div>
+</div>
+<!-- Vertical Reel Player -->
+<div class="lg:w-1/2 flex justify-center lg:justify-end">
+<div class="relative w-full max-w-[320px] aspect-[9/16] bg-black/20 rounded-2xl overflow-hidden shadow-2xl border border-white/10 group cursor-pointer">
+<!-- Video Placeholder -->
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Artist hands working on a clay sculpture in a studio setting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAmv5qmYCzlx9ybiWPDJZIrWPfJQS-yBUxodRksBITwD-INrgQx86zO_LryUTJQ2dnfo8XduwvWmm0-z84_8nw-X_jonS7xInyrBqa2Un7M-wIq1j9_zjskb5QOWesN_fALRvtgqBayfuhUPYxrGOLkW1PM5R1Ue4Ets3cumy7nAx5GAay9JptXJHehtilqwMkW_pQ-I_GULTHD5ibEXKRlNgPYAUyFFvKflTKuBoG1a7NRYp5baU37K9VQ3X0yYoJbQyyXvfDH8wk');">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20"></div>
+<!-- UI Overlays -->
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-white/20 backdrop-blur-md px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider border border-white/10">Reel</span>
+</div>
+<div class="absolute bottom-6 left-6 right-6">
+<div class="flex items-center gap-3 mb-3">
+<div class="h-8 w-8 rounded-full bg-white/20 backdrop-blur-md overflow-hidden border border-white/30">
+<img class="w-full h-full object-cover" data-alt="Small avatar of the artist" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBp4hpbLWFdmRy7Aym6iHlciMkTwSIw_lm3YSCsY3d3icaUZVKemcey9C_BNeWdvz44zGpH8zTNmm4qH_X8FAzORfqIWh7YIirPWsTyABeug_OrgtpcjSQ42JCBfqaJ7hHnPbWhCAsUGmtoR2VhGwVMIiu8t174CqC1F-BYN3tRD-_RCk2LVOiXq8OwBM0RxUmq5TWfq9oZHGQk9ze9VNx9H9GcrM9Q7xLn6eVa1k6Igd22yP2EangWVVddmoUfVV6NbPF0m8gF-k0"/>
+</div>
+<span class="text-sm font-bold">@elena_v</span>
+</div>
+<p class="text-sm opacity-90 line-clamp-2 mb-4">First layers of the new collection. The light this afternoon was perfect.</p>
+<div class="h-1 w-full bg-white/30 rounded-full overflow-hidden">
+<div class="h-full w-1/3 bg-primary"></div>
+</div>
+</div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<div class="h-16 w-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/40 shadow-lg">
+<span class="material-symbols-outlined text-4xl">play_circle</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Collections / Grid -->
+<section class="w-full max-w-[1440px] px-6 md:px-12 lg:px-20 py-12 pb-24">
+<!-- Filter Tabs -->
+<div class="flex flex-col md:flex-row justify-between items-end border-b border-[#191110]/10 dark:border-[#efe2c2]/10 pb-4 mb-12 gap-6">
+<h3 class="text-3xl font-serif font-medium text-[#191110] dark:text-[#efe2c2]">Selected Works</h3>
+<div class="flex gap-8 overflow-x-auto hide-scrollbar w-full md:w-auto">
+<button class="whitespace-nowrap pb-2 border-b-2 border-primary text-primary font-bold uppercase text-xs tracking-widest">Available Works</button>
+<button class="whitespace-nowrap pb-2 border-b-2 border-transparent hover:text-primary transition-colors font-bold uppercase text-xs tracking-widest opacity-60">Past Exhibitions</button>
+<button class="whitespace-nowrap pb-2 border-b-2 border-transparent hover:text-primary transition-colors font-bold uppercase text-xs tracking-widest opacity-60">Press &amp; Editorial</button>
+</div>
+</div>
+<!-- Masonry Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="group flex flex-col gap-4">
+<div class="relative w-full aspect-[3/4] rounded-lg overflow-hidden bg-gray-100 dark:bg-white/5">
+<img alt="Abstract marble sculpture with smooth curves" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Abstract marble sculpture with smooth curves and heavy shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAq2pZOlF_C9xK6ggSDGdkpVcmlKlA886FdLAQ7L2A-sA6bMGz_7_qaSCobpZiRIQxy-vW-5BmwFdRRQiXXMoEVh5oozlO7tl8fkq_KKNDs6bOFnPhUqghBLIULcwqynPBw-WmvvL0iTl-5-i9n7D8MlZ-T63iEPQ0bxC3q9Vf3h7RmFUK9iOcfYX-GlwQOemclCNncwG3-7889UMmZz6bTyWep1kh29TVQN7OVa2Emiy8r2OOYXnVj54CN4-UXbx9K_myYc6D8w5U"/>
+<div class="absolute bottom-4 right-4 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+<button class="bg-white/90 dark:bg-black/80 backdrop-blur text-primary px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider shadow-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">view_in_ar</span>
+                                View in Room
+                             </button>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-body italic text-2xl text-[#191110] dark:text-[#efe2c2]">Study in Marble No. 4</h4>
+<p class="text-xs uppercase tracking-wider opacity-60 mt-1">Carrara Marble, 2023</p>
+</div>
+<div class="text-right">
+<span class="block font-bold text-lg">$4,200</span>
+<span class="text-xs text-primary font-bold uppercase">Available</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group flex flex-col gap-4">
+<div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-gray-100 dark:bg-white/5">
+<img alt="Textured oil painting in beige and black tones" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Textured oil painting close up showing brush strokes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgMZ7tdD9t2XDnkDd0nRo_ECtszJyfhKBu54oK_KKrPFOp_ZW-B3vfc3F3fZ_ZEMLCLF_OdSwlMbeJUlr06ICR5TbvJU9kR8WABJGBKOk6UwEBxF7Kna-Tq-GRPgYBJppVLw6aU5Fbc0P0Mk15hPyR2fkzPFb45iJAGN24cRkXVxebOh_f86xoML4vEFJBNOLGgnyHfR2uiJOFGQnHeGgLj66ix2E1DG0sMR8jaS7u7QTUKrLLgbHoGm2hGYki17tZTGTvMo9TBDg"/>
+<div class="absolute bottom-4 right-4 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+<button class="bg-white/90 dark:bg-black/80 backdrop-blur text-primary px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider shadow-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">view_in_ar</span>
+                                View in Room
+                             </button>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-body italic text-2xl text-[#191110] dark:text-[#efe2c2]">Before the Rain</h4>
+<p class="text-xs uppercase tracking-wider opacity-60 mt-1">Oil on Canvas, 2023</p>
+</div>
+<div class="text-right">
+<span class="block font-bold text-lg">$2,800</span>
+<span class="text-xs text-primary font-bold uppercase">Available</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group flex flex-col gap-4">
+<div class="relative w-full aspect-[3/4] rounded-lg overflow-hidden bg-gray-100 dark:bg-white/5">
+<img alt="Geometric plaster sculpture on a podium" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Geometric plaster sculpture on a podium with sharp shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNDC9rK2MiNqPtMT5ovI8TUpgqDD31zfP-irKkotEmmUXifNfqCddc6Tq9Y2TtoONYBKe6ckA_oayyz1IBu55A0Hd7VtNUygA-QHvThi1JnlpdXwyd_-U88SKSarcGyiwxyh_sSbeTUawtWltFRkUnhoVl1Ug_7Iv_CTu5Hov6QpTnShnu99hDsCLmiJP9OYcjCJw-PT33bXpZehP2ANStLBJCKDkZYPW-yg4y4UGumcpKbJ6yhWkgrhzV3lMT0yPY1TTLEvWr4ss"/>
+<div class="absolute top-4 left-4">
+<span class="bg-primary/90 text-white px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider">Reserved</span>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-body italic text-2xl text-[#191110] dark:text-[#efe2c2]">Fragment II</h4>
+<p class="text-xs uppercase tracking-wider opacity-60 mt-1">Plaster &amp; Resin, 2022</p>
+</div>
+<div class="text-right">
+<span class="block font-bold text-lg">$1,500</span>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group flex flex-col gap-4">
+<div class="relative w-full aspect-[3/4] rounded-lg overflow-hidden bg-gray-100 dark:bg-white/5">
+<img alt="Minimalist ceramic vase with organic shape" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Minimalist ceramic vase with organic shape on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkmX4HVTGj6zDbBi_HJERqFw_-lcorLlHMgg3J6dkwchzoR9AU6JFP_qf5r8brvH6OdgJXAWIYJVJ9XU0YcjG1rdnOT5GQWAAoiAUR08fOGAatJzXeJonauQmGHnqy_GDrTmewMOWA1KFU3o_Y0JX-ZL5QTPiXcLRtHUjehXj1YndcTgRIqlKXXWP4Uwl2YOjwEP6CZpd-FGw9dtkb79QeOTVOktgDJSZh3hi0Bxd47QKgkV-kQcE60f7cmGoK01SFcfcK6WP4KSA"/>
+<div class="absolute bottom-4 right-4 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+<button class="bg-white/90 dark:bg-black/80 backdrop-blur text-primary px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider shadow-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">view_in_ar</span>
+                                View in Room
+                             </button>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-body italic text-2xl text-[#191110] dark:text-[#efe2c2]">Vessel of Time</h4>
+<p class="text-xs uppercase tracking-wider opacity-60 mt-1">Stoneware, 2024</p>
+</div>
+<div class="text-right">
+<span class="block font-bold text-lg">$950</span>
+<span class="text-xs text-primary font-bold uppercase">Available</span>
+</div>
+</div>
+</div>
+<!-- Card 5 (Text Only / Quote) - Unexpected element -->
+<div class="group flex flex-col justify-center items-center gap-4 bg-[#191110]/5 dark:bg-[#efe2c2]/5 rounded-lg p-8 text-center aspect-[4/3] md:aspect-auto">
+<span class="material-symbols-outlined text-4xl text-primary opacity-50">format_quote</span>
+<p class="font-serif text-xl md:text-2xl leading-relaxed">
+                        Art is not what you see, but what you make others see.
+                    </p>
+<div class="w-12 h-[1px] bg-current opacity-30 mt-2"></div>
+<p class="text-xs uppercase tracking-widest font-bold opacity-60">Edgar Degas</p>
+</div>
+<!-- Card 6 -->
+<div class="group flex flex-col gap-4">
+<div class="relative w-full aspect-[3/4] rounded-lg overflow-hidden bg-gray-100 dark:bg-white/5">
+<img alt="Bronze sculpture abstract figure" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Bronze sculpture abstract figure with patina" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlaUH-1dJ2-e5ruYEvmzzlbREU_orPJorNaPRV7LU5GA3xQg4UZ02np1QWAfyZg37JLdsxPwgWVDb4bPML3C-U1VFIIqj68QvkWudpLOGjteY77EZjVD2Cpin123i-OMPJWhaAr4B7N76tUTX3uQ6Lo8cnJT9eF1MnJKy1D43QiVXNoxYlUKynCL-7ghBpsblLdKS-bbFdZ1kw13m_XaK_5BSGDTvzp4ES8OemyBJSsHXiiUJdhUW-cwz1fp9KxpXCquMYpZefZoA"/>
+<div class="absolute bottom-4 right-4 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+<button class="bg-white/90 dark:bg-black/80 backdrop-blur text-primary px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider shadow-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">view_in_ar</span>
+                                View in Room
+                             </button>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-body italic text-2xl text-[#191110] dark:text-[#efe2c2]">The Walker</h4>
+<p class="text-xs uppercase tracking-wider opacity-60 mt-1">Bronze, 2021</p>
+</div>
+<div class="text-right">
+<span class="block font-bold text-lg">$6,800</span>
+<span class="text-xs text-primary font-bold uppercase">Available</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex justify-center mt-16">
+<button class="group flex items-center gap-2 text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">
+                    Load More Works
+                    <span class="material-symbols-outlined group-hover:translate-y-1 transition-transform">expand_more</span>
+</button>
+</div>
+</section>
+<!-- Newsletter / Footer Lite -->
+<footer class="w-full bg-[#191110] text-[#efe2c2] py-20 px-6 md:px-12 lg:px-20">
+<div class="max-w-[1440px] mx-auto flex flex-col lg:flex-row justify-between items-start gap-12">
+<div class="max-w-md">
+<h5 class="font-serif text-3xl mb-4">Updates from Elena</h5>
+<p class="font-body text-lg opacity-70 mb-8">
+                        Join the collector's list to receive early access to new collections, exhibition invites, and studio notes.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<input class="bg-white/10 border-none rounded-lg px-4 py-3 placeholder:text-white/30 focus:ring-1 focus:ring-primary w-full text-white" placeholder="Your email address" type="email"/>
+<button class="bg-primary hover:bg-[#b0422d] text-white px-6 py-3 rounded-lg font-bold uppercase text-xs tracking-wider whitespace-nowrap transition-colors">
+                            Subscribe
+                        </button>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2 text-right opacity-50">
+<p class="text-xs uppercase tracking-widest">© 2024 Artiva Gallery</p>
+<div class="flex gap-4 mt-2">
+<a class="hover:text-white transition-colors" href="#">Instagram</a>
+<a class="hover:text-white transition-colors" href="#">Twitter</a>
+<a class="hover:text-white transition-colors" href="#">Artsy</a>
+</div>
+</div>
+</div>
+</footer>
+</main>
+</body></html>

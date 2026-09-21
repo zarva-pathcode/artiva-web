@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Artiva Gallery Grid</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#cd543c",
+                        "background-light": "#efe2c2",
+                        "background-dark": "#1d2a27",
+                        "stone-dark": "#2D3748",
+                        "stone-light": "#F7F2EB",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"],
+                        "serif": ["EB Garamond", "serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem", 
+                        "lg": "1rem", 
+                        "xl": "1.5rem", 
+                        "2xl": "2rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>.scrollbar-hide::-webkit-scrollbar {
+    display: none
+    }
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none
+    }
+.watermark {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAq5WvQ-PiEY-D4NZnqQoFn10Dnyktr2UWhcg7BxMkd4lS36lnpk6_HlWwQmt3HBRc8yIizWQcUnoF9NPmREvUDlpJCsJF37m5pIO8KxPxy6ITSJzuCbURKUvde1n2oHD3fOSJYGb0PlPPiLEvbzeFv5fHkZSTC85RA84ZaiU5IoNdVQz4OwxlHA8O0fdMjPxD50iRloyqh5Ig_3fyP-wY7wffMBh5H_k7alGMT2KLNIvktNshtKr4_i6mjS7sbr717j8VGA7Chr7Q)
+    }</style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-stone-dark dark:text-stone-light font-display min-h-screen flex flex-col transition-colors duration-300 antialiased selection:bg-primary selection:text-white">
+<!-- Sticky Navigation -->
+<header class="sticky top-0 z-50 w-full backdrop-blur-md bg-background-light/90 dark:bg-background-dark/90 border-b border-[#dcd1b9] dark:border-[#2a3835] transition-all duration-300">
+<div class="max-w-[1600px] mx-auto px-6 h-20 flex items-center justify-between">
+<!-- Logo -->
+<div class="flex items-center gap-1 group cursor-pointer">
+<span class="material-symbols-outlined text-3xl text-primary transform group-hover:rotate-12 transition-transform duration-500">
+                    palette
+                </span>
+<h1 class="font-serif text-3xl font-medium tracking-tight text-stone-dark dark:text-stone-light">Artiva</h1>
+</div>
+<!-- Nav Links (Desktop) -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-semibold uppercase tracking-widest text-primary relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-[1px] after:bg-primary" href="#">Gallery</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Artists</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Exhibitions</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Editorial</a>
+</nav>
+<!-- Actions -->
+<div class="flex items-center gap-4">
+<button aria-label="Search" class="p-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-full transition-colors">
+<span class="material-symbols-outlined text-[24px]">search</span>
+</button>
+<button aria-label="Cart" class="p-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-full transition-colors relative">
+<span class="material-symbols-outlined text-[24px]">shopping_bag</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+<button class="hidden sm:flex items-center gap-2 pl-2 pr-4 py-1.5 bg-stone-dark dark:bg-stone-light text-stone-light dark:text-stone-dark rounded-full hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[20px]">account_circle</span>
+<span class="text-xs font-bold uppercase tracking-wider">Sign In</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-grow w-full max-w-[1600px] mx-auto px-6 py-8">
+<!-- Header & Controls Section -->
+<div class="flex flex-col xl:flex-row xl:items-end justify-between gap-8 mb-12 animate-fade-in">
+<!-- Title -->
+<div class="max-w-2xl">
+<p class="text-primary font-bold tracking-widest uppercase text-xs mb-3">Curated Collection</p>
+<h2 class="font-serif text-5xl md:text-6xl text-stone-dark dark:text-stone-light leading-[0.95] mb-4">Modern Abstraction &amp; <br/><span class="italic text-stone-500 dark:text-stone-400">Silent Echoes</span></h2>
+<p class="text-stone-600 dark:text-stone-400 max-w-lg text-lg font-serif">
+                    Discover distinct pieces for your personal collection. Each artwork is verified with a digital Certificate of Authenticity.
+                </p>
+</div>
+<!-- Controls Toolbar -->
+<div class="flex flex-col gap-4 w-full xl:w-auto">
+<!-- AR Toggle Panel -->
+<div class="flex items-center justify-between xl:justify-end gap-4 p-2 pl-4 bg-white/40 dark:bg-black/20 rounded-xl border border-[#dcd1b9] dark:border-[#2a3835]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">view_in_ar</span>
+<span class="text-sm font-bold text-stone-dark dark:text-stone-light">AR Preview Mode</span>
+</div>
+<label class="relative flex h-[24px] w-[44px] cursor-pointer items-center rounded-full bg-stone-300 dark:bg-stone-600 p-1 has-[:checked]:justify-end has-[:checked]:bg-primary transition-colors duration-300">
+<div class="h-[18px] w-[18px] rounded-full bg-white shadow-sm transition-all"></div>
+<input class="invisible absolute" type="checkbox"/>
+</label>
+</div>
+<!-- Filters -->
+<div class="flex flex-wrap gap-3 items-center">
+<button class="flex items-center gap-2 px-4 py-2 bg-transparent border border-stone-400 dark:border-stone-600 rounded-full hover:border-primary hover:text-primary transition-colors text-sm font-medium">
+                        Medium <span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 bg-transparent border border-stone-400 dark:border-stone-600 rounded-full hover:border-primary hover:text-primary transition-colors text-sm font-medium">
+                        Price Range <span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 bg-transparent border border-stone-400 dark:border-stone-600 rounded-full hover:border-primary hover:text-primary transition-colors text-sm font-medium">
+                        Artist <span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+<div class="h-6 w-[1px] bg-stone-300 dark:bg-stone-700 mx-1 hidden sm:block"></div>
+<button class="flex items-center gap-2 px-4 py-2 text-stone-500 hover:text-stone-800 dark:hover:text-stone-200 transition-colors text-sm font-medium ml-auto sm:ml-0">
+<span class="material-symbols-outlined text-[18px]">sort</span> Sort by: Recommended
+                    </button>
+</div>
+</div>
+</div>
+<!-- Masonry Grid -->
+<!-- Using CSS columns for true masonry layout -->
+<div class="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-8 space-y-8">
+<!-- Card 1 (Tall) -->
+<div class="group break-inside-avoid relative mb-8">
+<div class="relative overflow-hidden rounded-lg bg-stone-200 dark:bg-stone-800">
+<div class="absolute inset-0 z-10 watermark opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none mix-blend-overlay"></div>
+<!-- Hover Actions Overlay -->
+<div class="absolute inset-0 z-20 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+<div class="flex gap-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+<button class="flex-1 bg-white text-stone-900 py-3 rounded-lg text-sm font-bold shadow-lg hover:bg-stone-50 transition-colors flex items-center justify-center gap-2">
+                                View Details
+                            </button>
+<button class="aspect-square bg-primary text-white rounded-lg flex items-center justify-center hover:bg-red-700 transition-colors shadow-lg" title="View in Room">
+<span class="material-symbols-outlined">view_in_ar</span>
+</button>
+</div>
+</div>
+<img alt="Abstract oil painting with vertical strokes of beige and deep blue" class="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFBzAigvdD-jpSAm9T-PGjksoCxJrFuO7028Q_7WpP04aBwoVIKN2-ZXq6ZIf9uS3NzpSZqDDwdwfud9CdfJZieTTVk0W80qBTqH64QH2bijuwuQuMP47V3icTOxuSdVSBzXq9OHs6rEl2HvfnwC3IQuy0fjAkzgauGm5ysBvo_katW8Z04OKz4sNTf-VnbiSLyZ2RGwsH2bhTa8H3cmub0LYnZQ2nsvV999_URsL7j5DMcLVEEFtYZj4YiTAZWF1xH_IVpNgX4pI"/>
+</div>
+<div class="mt-4 flex justify-between items-start">
+<div>
+<h3 class="font-serif text-xl text-stone-900 dark:text-stone-100 leading-tight group-hover:text-primary transition-colors">The Silent Echo</h3>
+<p class="text-sm text-stone-500 dark:text-stone-400 mt-1">Elena Vance</p>
+<p class="text-xs text-stone-400 mt-0.5 font-medium uppercase tracking-wide">Oil on Canvas</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-primary">$4,500</p>
+</div>
+</div>
+</div>
+<!-- Card 2 (Short/Wide) -->
+<div class="group break-inside-avoid relative mb-8">
+<div class="relative overflow-hidden rounded-lg bg-stone-200 dark:bg-stone-800">
+<div class="absolute inset-0 z-10 watermark opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none mix-blend-overlay"></div>
+<div class="absolute inset-0 z-20 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+<div class="flex gap-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+<button class="flex-1 bg-white text-stone-900 py-3 rounded-lg text-sm font-bold shadow-lg hover:bg-stone-50 transition-colors">View Details</button>
+<button class="aspect-square bg-primary text-white rounded-lg flex items-center justify-center hover:bg-red-700 transition-colors shadow-lg">
+<span class="material-symbols-outlined">view_in_ar</span>
+</button>
+</div>
+</div>
+<img alt="Moody landscape photography with fog and forest" class="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDj93K997BpPCDqFAvxMLGk7MHSRKsq1NoKcZGodpv2PGa1R_Op4rEYzZooVYtW7v9mcADn8cfhR139z8nEiuMNAjK73Xes-f3H33gOem6jYPLbqf-qiLFe44Owb_IySQ-kIKcRsnOmS2ZhU-DodQ1HuR3Y_2ttCPby1xtx01KRZeSJWwMdcsrxXg03tCccgMQs8G28q82FB0YNh-eTehindYRssOaNWJCMbJe4XMY6i1Y2ysRZToCMm1CkxMqvqRyW8aOT0xeixVs"/>
+</div>
+<div class="mt-4 flex justify-between items-start">
+<div>
+<h3 class="font-serif text-xl text-stone-900 dark:text-stone-100 leading-tight group-hover:text-primary transition-colors">Coastal Refractions</h3>
+<p class="text-sm text-stone-500 dark:text-stone-400 mt-1">Liam O'Connor</p>
+<p class="text-xs text-stone-400 mt-0.5 font-medium uppercase tracking-wide">Photography</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-primary">$3,200</p>
+</div>
+</div>
+</div>
+<!-- Card 3 (Square/Tall) -->
+<div class="group break-inside-avoid relative mb-8">
+<div class="relative overflow-hidden rounded-lg bg-stone-200 dark:bg-stone-800">
+<div class="absolute top-3 left-3 z-20 bg-stone-900/80 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">Reserved</div>
+<div class="absolute inset-0 z-10 watermark opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none mix-blend-overlay"></div>
+<div class="absolute inset-0 z-20 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+<div class="flex gap-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+<button class="flex-1 bg-white text-stone-900 py-3 rounded-lg text-sm font-bold shadow-lg hover:bg-stone-50 transition-colors">View Details</button>
+<button class="aspect-square bg-primary text-white rounded-lg flex items-center justify-center hover:bg-red-700 transition-colors shadow-lg">
+<span class="material-symbols-outlined">view_in_ar</span>
+</button>
+</div>
+</div>
+<img alt="Abstract portrait with geometric shapes and earth tones" class="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNWU5WDKNSmRuYYoSw5PC1Im8CGCahJ6y4SG-Lx_Xq_TgZIvLm3DTKnk5iXcrCFK2WWJi1qSlfITarpoD33Ac-0m4Zy6-XWB_9hI4UVKscVnToc-xIcZHHS40YWE9R1PEGmTw8QkcygBPOT6Dp9H10gpx97Y-wJDR0LuZzWS-AG4JWFDLZ1p-LvWQ3KEkLwCZSK-uHLal1QQm8JNfVNzQT_l0elObsnzTPo4Tz3k9fpr8K_5WJ3NxgSrNpOPS4FhDQsLe_wXJ-tnE"/>
+</div>
+<div class="mt-4 flex justify-between items-start">
+<div>
+<h3 class="font-serif text-xl text-stone-900 dark:text-stone-100 leading-tight group-hover:text-primary transition-colors">Urban Decay IV</h3>
+<p class="text-sm text-stone-500 dark:text-stone-400 mt-1">Marcus Thorne</p>
+<p class="text-xs text-stone-400 mt-0.5 font-medium uppercase tracking-wide">Digital Mixed Media</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-primary">$1,200</p>
+</div>
+</div>
+</div>
+<!-- Card 4 (Sculpture) -->
+<div class="group break-inside-avoid relative mb-8">
+<div class="relative overflow-hidden rounded-lg bg-stone-200 dark:bg-stone-800">
+<div class="absolute inset-0 z-10 watermark opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none mix-blend-overlay"></div>
+<div class="absolute inset-0 z-20 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+<div class="flex gap-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+<button class="flex-1 bg-white text-stone-900 py-3 rounded-lg text-sm font-bold shadow-lg hover:bg-stone-50 transition-colors">View Details</button>
+<button class="aspect-square bg-primary text-white rounded-lg flex items-center justify-center hover:bg-red-700 transition-colors shadow-lg">
+<span class="material-symbols-outlined">view_in_ar</span>
+</button>
+</div>
+</div>
+<img alt="Minimalist white ceramic sculpture with organic curves" class="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpCOmaMg6Mb9EGm9gkAfwDFIn-b6UlBRQmYG61FpHPotNPHvXX8uhZjNZzrTK1u8J4FjihaoM-RUuHmH92fKAEVxbtXIKgZGMak8Hh7B-0h3tfilZlTWNGvP18e4TLEUJyl5fkYht8WKP4cuevJ2K-TOn9Shw0M2bbrvGkyDHMX5ri3SEvjkn2NdpmytLDyXrxKsij551apjSl-YEA0_Bx_uAyJ0CR2lNQ_RVL76A6G_IYDvZv8R89qRgjn673y1mU617vE9ov-WA"/>
+</div>
+<div class="mt-4 flex justify-between items-start">
+<div>
+<h3 class="font-serif text-xl text-stone-900 dark:text-stone-100 leading-tight group-hover:text-primary transition-colors">Sienna Dreams</h3>
+<p class="text-sm text-stone-500 dark:text-stone-400 mt-1">Aria J.</p>
+<p class="text-xs text-stone-400 mt-0.5 font-medium uppercase tracking-wide">Ceramic</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-primary">$8,000</p>
+</div>
+</div>
+</div>
+<!-- Card 5 (Painting) -->
+<div class="group break-inside-avoid relative mb-8">
+<div class="relative overflow-hidden rounded-lg bg-stone-200 dark:bg-stone-800">
+<div class="absolute inset-0 z-10 watermark opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none mix-blend-overlay"></div>
+<div class="absolute inset-0 z-20 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+<div class="flex gap-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+<button class="flex-1 bg-white text-stone-900 py-3 rounded-lg text-sm font-bold shadow-lg hover:bg-stone-50 transition-colors">View Details</button>
+<button class="aspect-square bg-primary text-white rounded-lg flex items-center justify-center hover:bg-red-700 transition-colors shadow-lg">
+<span class="material-symbols-outlined">view_in_ar</span>
+</button>
+</div>
+</div>
+<img alt="Vibrant abstract art with splashes of red and orange" class="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3ubCiLUQcvIltZLy9UJTAVgFSZpXCAJpj9YBgxNQ4wFQASdQqe4QnkEnlX3I2YWJ7nq7tnt2E9ztf86JaCTEILP12BneqjiBpzRf_GDtDRpqINAAtQuFBDnfotgwrBgfG-dhnDz6F1QzNVJMJWpMkElf2XBDJtqlAvpnvygAyMq-PyTgQZFbkiOdduHM4gHkex5x7tPTnCfiVIHfAxRi3yMOZmNsQ60wVckJq5KKB1xcqXcc6se5MIOEdsYDIo4-NMC6DKo1wf-M"/>
+</div>
+<div class="mt-4 flex justify-between items-start">
+<div>
+<h3 class="font-serif text-xl text-stone-900 dark:text-stone-100 leading-tight group-hover:text-primary transition-colors">Fierce Motion</h3>
+<p class="text-sm text-stone-500 dark:text-stone-400 mt-1">Elena Vance</p>
+<p class="text-xs text-stone-400 mt-0.5 font-medium uppercase tracking-wide">Acrylic on Wood</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-primary">$3,800</p>
+</div>
+</div>
+</div>
+<!-- Card 6 (Tall) -->
+<div class="group break-inside-avoid relative mb-8">
+<div class="relative overflow-hidden rounded-lg bg-stone-200 dark:bg-stone-800">
+<div class="absolute inset-0 z-10 watermark opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none mix-blend-overlay"></div>
+<div class="absolute inset-0 z-20 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+<div class="flex gap-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+<button class="flex-1 bg-white text-stone-900 py-3 rounded-lg text-sm font-bold shadow-lg hover:bg-stone-50 transition-colors">View Details</button>
+<button class="aspect-square bg-primary text-white rounded-lg flex items-center justify-center hover:bg-red-700 transition-colors shadow-lg">
+<span class="material-symbols-outlined">view_in_ar</span>
+</button>
+</div>
+</div>
+<img alt="Dark textured background with light illuminating from center" class="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7yTX94fmwwJI2mtZUftVFgG8SgPcMIqBPOsZZhSnnh5P0PlJdwJOey6u-lzBda5O4EJeVRLW4olO-3RewTw23Rk6PQ1UBDaiPZU1IILmlLWCND4nkG8ZVI-iNl6SDcrF4D7YvPPv6nX6PbGwBL5-LS-t0lQSmcokmlX61cymf_rXHToRC26SJf__rRvCYC8o18kwacjwgZy3CYU4_dNqHofKv7NV-j9X8ObfGGQWY5K2FB9E-wEDBp1YauFDhTE7QzOM0ciBs92I"/>
+</div>
+<div class="mt-4 flex justify-between items-start">
+<div>
+<h3 class="font-serif text-xl text-stone-900 dark:text-stone-100 leading-tight group-hover:text-primary transition-colors">Void Structure</h3>
+<p class="text-sm text-stone-500 dark:text-stone-400 mt-1">K. L. Peterson</p>
+<p class="text-xs text-stone-400 mt-0.5 font-medium uppercase tracking-wide">Charcoal</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-primary">$950</p>
+</div>
+</div>
+</div>
+<!-- Card 7 (Wide) -->
+<div class="group break-inside-avoid relative mb-8">
+<div class="relative overflow-hidden rounded-lg bg-stone-200 dark:bg-stone-800">
+<div class="absolute inset-0 z-10 watermark opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none mix-blend-overlay"></div>
+<div class="absolute inset-0 z-20 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+<div class="flex gap-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+<button class="flex-1 bg-white text-stone-900 py-3 rounded-lg text-sm font-bold shadow-lg hover:bg-stone-50 transition-colors">View Details</button>
+<button class="aspect-square bg-primary text-white rounded-lg flex items-center justify-center hover:bg-red-700 transition-colors shadow-lg">
+<span class="material-symbols-outlined">view_in_ar</span>
+</button>
+</div>
+</div>
+<img alt="Horizontal abstract painting with pastel colors" class="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBosLgkb40ar9ATiKSuBiN22XbMlTX7j6N6OfkAgItbgzCBdhgHJzjFN16wVtCbvysqPUM2k-dJqSDEGTnO52PUfF6rO1zM13y8kGsl0FYJbOt3KdKUTTqbvBG8aFDFCrv2jCBaG3RIFjiwBzYFXO1zYUMXeLVo15jRWDJiJdMd1rurPokO3a-LPlP70AKClLyydl8fgWr3rnmeZ4-LduKn2CrsUUvKTkqaZqpVar_daqw2OVVyizq4pn3QQEjlwETSCWMsq5HNbqY"/>
+</div>
+<div class="mt-4 flex justify-between items-start">
+<div>
+<h3 class="font-serif text-xl text-stone-900 dark:text-stone-100 leading-tight group-hover:text-primary transition-colors">Morning Haze</h3>
+<p class="text-sm text-stone-500 dark:text-stone-400 mt-1">Sarah Jenkins</p>
+<p class="text-xs text-stone-400 mt-0.5 font-medium uppercase tracking-wide">Watercolor</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-primary">$2,100</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Load More -->
+<div class="flex justify-center mt-20 mb-10">
+<button class="group px-8 py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-white transition-all duration-300 flex items-center gap-2">
+                Discover More
+                <span class="material-symbols-outlined group-hover:translate-y-1 transition-transform">arrow_downward</span>
+</button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-stone-dark text-stone-light pt-20 pb-10 border-t border-stone-800">
+<div class="max-w-[1600px] mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+<div class="col-span-1 md:col-span-2">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-3xl text-primary">palette</span>
+<h2 class="font-serif text-3xl">Artiva</h2>
+</div>
+<p class="text-stone-400 max-w-sm mb-8">
+                        The premier digital destination for modern abstraction and contemporary sculpture. Verified authenticity, curated for the distinct collector.
+                    </p>
+<div class="flex items-center gap-4">
+<div class="h-10 w-10 rounded-full bg-stone-800 flex items-center justify-center hover:bg-primary transition-colors cursor-pointer text-white">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg>
+</div>
+<div class="h-10 w-10 rounded-full bg-stone-800 flex items-center justify-center hover:bg-primary transition-colors cursor-pointer text-white">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.85-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+</div>
+</div>
+</div>
+<div>
+<h4 class="font-serif text-lg text-white mb-6">Marketplace</h4>
+<ul class="space-y-3 text-sm text-stone-400">
+<li><a class="hover:text-primary transition-colors" href="#">Latest Arrivals</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Curated Sets</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Emerging Artists</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Sculptures</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-serif text-lg text-white mb-6">Support</h4>
+<ul class="space-y-3 text-sm text-stone-400">
+<li><a class="hover:text-primary transition-colors" href="#">Collector's Guide</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Authenticity Verification</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Shipping &amp; Returns</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact Us</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-stone-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+<p class="text-xs text-stone-500">© 2024 Artiva Inc. All rights reserved.</p>
+<div class="flex items-center gap-6">
+<span class="text-xs text-stone-500 hover:text-stone-300 cursor-pointer">Privacy Policy</span>
+<span class="text-xs text-stone-500 hover:text-stone-300 cursor-pointer">Terms of Service</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

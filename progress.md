@@ -267,3 +267,71 @@ Dokumen pelacak progres pengembangan platform Artiva. Diperbarui setiap awal/akh
 ```text
 fix: match artist card photo rounding, edge margin, and stacked glass arrows
 ```
+
+---
+
+## Session 2026-09-27 (Push ke GitHub + Scrub Kredensial PHP Lama)
+
+### Completed
+- [x] **`.env.example` dibuat** + negasi `!.env.example` di `.gitignore` (pola `.env*` ternyata ikut meng-ignore template). Isi hanya placeholder `postgresql://USER:PASSWORD@localhost:5432/artiva`, tanpa nilai nyata. `.env` asli tetap ter-ignore.
+- [x] **`Artiva-Design.png` di-ignore** via `/public/images/Artiva-Design.png` (±7.5 MB, hanya acuan visual, bukan aset runtime). Diverifikasi tidak ikut ter-commit.
+- [x] **Typo alt text** di `lib/landing-data.ts` diperbaiki: `"warnanagealie vibrant"` → `"Lukisan pohon dengan warna vibrant"`.
+- [x] **`whyCollage` diisi 4 karya section 2 baru** (`image-section-2-1..4.png` → Vermeer, pohon abstrak, potret Böcklin, pola geometris) dalam tata letak masonry 2×2.
+- [x] **Verifikasi akhir**: `npm run lint` 0 error (25 warning `no-img-element` disengaja); `npm run build` sukses 27/27.
+- [x] **4 commit logis** dibuat sesuai rencana user, lalu di-push ke `origin/dev`:
+  | Commit | Scope |
+  | --- | --- |
+  | `3109da0` | `feat(gallery)`: Stitch gallery + marketplace, token, font, layout |
+  | `8d08b98` | `feat(landing)`: 10 komponen landing, 5 gambar baru |
+  | `51f398c` | `fix(assets)`: repoint 7 referensi gambar yang dihapus + fix footer legacy |
+  | `b734d4e` | `docs`: progress tracking |
+  | `2ae7165` | `chore(config)`: `.env.example` + un-ignore |
+- [x] **Remote `origin` ditambahkan** → `https://github.com/zarva-pathcode/artiva-web.git`. User memutuskan **push `dev` saja**; `master` lokal (82388ad, create-next-app init) tidak di-push karena tidak terkait dengan `main` di GitHub.
+
+### Temuan keamanan (penting)
+- [x] **Repo GitHub ternyata tidak kosong**: `origin/main` berisi **proyek PHP lama** (191 file: `koneksi.php`, `galeri.php`, `login.php`, `admin/`, `assets/`, `imageGaleri/`, dll.) pada commit tunggal `41bc590 "First commit"`. History `main` dan `dev` **saling terpisah** (tidak ada ancestor bersama).
+- [x] **Kredensial database ter-commit di 27 file PHP**, bukan hanya `koneksi.php`:
+  - Pola A — inline constructor (3 varian quoting): `$db = new mysqli('localhost', 'artivaap_root', 'Agam123457_', 'artivaap_db_artiva');`
+  - Pola B — variabel terpisah: `$user = 'artivaap_root';` / `$password = 'Agam123457_';` (beberapa bahkan ber-komentar "Ganti dengan password Anda", tapi password asli tetap ikut ter-commit).
+  - Sebaran: `editor/` 10 file, `admin/` 9 file, `user/` 5 file, root 3 file.
+  - Plus `error.log` dan `.DS_Store`.
+- [x] User memutuskan: proyek ini memang **sedang di-rewrite total dari PHP ke Next.js** (FE + BE dibangun ulang), jadi **proyek PHP dihapus dari `main`**.
+
+### Scrub `main` (completed)
+- [x] Backup lokal dibuat sebelum refactor: branch `backup-main-41bc590` + tag `backup-pre-scrub` → menunjuk `41bc590`.
+- [x] `git filter-repo` **tidak tersedia** di mesin ini (tidak ada Python/pip), sehingga approach alternatif dipakai.
+- [x] Scrub dikerjakan di **clone sementara** di `%TEMP%\opencode\artiva-scrub` agar working tree `dev` tidak tersentuh sama sekali.
+- [x] Orphan branch `main-scrubbed` dibuat (index dikosongkan penuh), lalu hanya `README.md` yang di-commit → `7a3f1e8` sebagai **root commit tunggal**.
+- [x] Force-push dengan `--force-with-lease`: `41bc590...7a3f1e8 (forced update)`.
+- [x] Temp clone dihapus; ref lokal di-fetch ulang.
+- [x] **Validasi akhir**:
+  - Kredensial di `origin/dev` → bersih
+  - Kredensial di `origin/main` → bersih
+  - Commit `41bc590` → tidak lagi dirujuk branch remote mana pun
+  - `origin/main` → hanya berisi `README.md`
+  - `.env.example` → ter-track di `dev`; `Artiva-Design.png` → tidak ikut
+  - Working tree → bersih
+
+### 🔴 Blocked / Tindakan Wajib untuk User
+- [ ] **ROTASI PASSWORD DATABASE `artivaap_root` masih WAJIB dilakukan di hosting.** Menghapus file dari `main` **tidak menghilangkan kebocoran**: commit lama masih ada di (a) cache objek server GitHub sementara, (b) reflog server, (c) salinan clone siapa pun yang sudah pernah menarik `main`. Rotasi satu-satunya langkah yang benar-benar menutup risiko.
+- [ ] Setelah rotasi, hapus backup lokal yang masih memegang `41bc590`:
+      ```bash
+      git branch -D backup-main-41bc590
+      git tag -d backup-pre-scrub
+      ```
+      (jangan pernah di-push — kalau terpush, kredensial kembali ke repo)
+- [ ] Hapus clone lama dari semua mesin: `rm -rf .git` lalu `git clone` ulang.
+- [ ] Aktifkan **GitHub Push Protection / Secret Scanning** (Settings → Code security).
+- [ ] Pertimbangkan `gitleaks` sebagai pre-commit hook agar kebocoran serupa tertangkap sebelum commit.
+- [ ] Branchning policy perlu diseragamkan dengan hosting: kalau `main` kini hanya README, pertimbangkan menjadikan `dev` sebagai default branch atau memakai `main` untuk rilis produksi. Saat ini default branch masih `main`.
+
+### Pending / Next Actions
+- [ ] Backend baru belum ada sama sekali — `app/page.tsx` masih memakai mock data. Langkah berikutnya yang masuk akal: setup Prisma schema untuk user/artwork, lalu `/api/auth` + session, baru RBAC.
+- [ ] Ganti `next/image` untuk menghilangkan 25 warning `no-img-element` (gunakan `fill` + `sizes`, bukan `width`/`height` numerik).
+- [ ] QA visual section 5 & section 2 (masonry 4 karya) oleh user di `localhost:3000`.
+- [ ] Backlog: sambungkan `/gallery` + `/marketplace` ke Prisma + guard RBAC.
+
+**Suggested Commit:**
+```text
+chore(security): purge legacy PHP app with exposed DB credentials from main
+```

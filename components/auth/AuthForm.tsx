@@ -9,8 +9,8 @@ export default function AuthForm({ mode }: { mode: "login" | "register" }) {
   const [show, setShow] = useState(false);
   const bg =
     mode === "login"
-      ? "/images/background_login.jpg"
-      : "/images/backgground_register.jpg";
+      ? "/images/belanja-image.jpg"
+      : "/images/landing-image.png";
 
   return (
     <div

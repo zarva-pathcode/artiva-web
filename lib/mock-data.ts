@@ -58,7 +58,7 @@ export const artworks: Artwork[] = [
     title: "Karya Abstrak",
     artist: "Komunitas Seni",
     description: "Eksplorasi bentuk dan warna kontemporer Indonesia.",
-    image: "/images/abstrak.jpg",
+    image: "/images/landing-image.png",
   },
   {
     id: "5",
@@ -124,7 +124,7 @@ export const events: ArtEvent[] = [
     description: "Pameran kolektif seniman dari berbagai daerah di Indonesia.",
     date: "2026-10-15",
     status: "Akan datang",
-    image: "/images/main-image1.png",
+    image: "/images/Balinese_Art.png",
   },
   {
     id: "2",
@@ -132,7 +132,7 @@ export const events: ArtEvent[] = [
     description: "Pertunjukan tari, musik, dan pasar karya seni.",
     date: "2026-11-02",
     status: "Pendaftaran dibuka",
-    image: "/images/main-image2.png",
+    image: "/images/Wayang_Art.png",
   },
   {
     id: "3",
@@ -140,6 +140,6 @@ export const events: ArtEvent[] = [
     description: "Belajar teknik melukis gaya Bali bersama seniman senior.",
     date: "2026-11-20",
     status: "Kuota terbatas",
-    image: "/images/main-image3.png",
+    image: "/images/Tari_Art.png",
   },
 ];

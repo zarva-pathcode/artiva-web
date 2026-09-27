@@ -41,3 +41,7 @@ yarn-error.log*
 next-env.d.ts
 
 /app/generated/prisma
+
+# Referensi desain full-page (2160x8685, 7.5MB) - hanya dipakai sebagai
+# acuan visual saat develop, tidak dipakai runtime.
+/public/images/Artiva-Design.png
